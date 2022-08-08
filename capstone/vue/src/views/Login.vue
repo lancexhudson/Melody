@@ -19,27 +19,39 @@
       >
         Thank you for registering, please sign in.
       </div>
-      <label for="username" class="sr-only">Username</label>
-      <input
-        type="text"
-        id="username"
-        class="form-control"
-        placeholder="Username"
-        v-model="user.username"
-        required
-        autofocus
-      />
-      <label for="password" class="sr-only">Password</label>
-      <input
-        type="password"
-        id="password"
-        class="form-control"
-        placeholder="Password"
-        v-model="user.password"
-        required
-      />
-      <router-link :to="{ name: 'register' }">Need an account?</router-link>
-      <button type="submit">Sign in</button>
+      <ul>
+        <li>
+          <label for="username" class="sr-only"></label>
+          <input
+            type="text"
+            id="username"
+            class="form-control"
+            placeholder="Username"
+            v-model="user.username"
+            required
+            autofocus
+          />
+        </li>
+        <li>
+          <label for="password" class="sr-only"></label>
+          <input
+            type="password"
+            id="password"
+            class="form-control"
+            placeholder="Password"
+            v-model="user.password"
+            required
+          />
+        </li>
+        <li>
+          <router-link class="link" :to="{ name: 'register' }"
+            >Need an account?</router-link
+          >
+        </li>
+        <li>
+          <button type="submit">Sign in</button>
+        </li>
+      </ul>
     </form>
   </div>
 </template>
@@ -85,11 +97,13 @@ export default {
 <style>
 body {
   display: flex;
+  flex-direction: column;
   justify-content: center;
-
-  background: grey;
+  align-content: center;
+  background: black;
   color: white;
-  font-family: sans-serif;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  height: 100vh;
 }
 #login {
   display: flex;
@@ -102,7 +116,23 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border: dashed 1px red;
+}
+
+ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  list-style: none;
+  padding-left: 0px;
+}
+
+li {
+  margin-top: 8px;
+}
+
+.link {
+  color: inherit;
+  text-decoration: none;
 }
 
 /* need to make image responsive */
