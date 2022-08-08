@@ -1,0 +1,18 @@
+BEGIN TRANSACTION;
+
+DROP TABLE IF EXISTS band;
+
+DROP SEQUENCE IF EXISTS seq_user_id;
+
+
+CREATE SEQUENCE seq_user_id
+  INCREMENT BY 1
+  START WITH 1001
+  NO MAXVALUE;
+
+CREATE TABLE band (
+band_id int NOT NULL DEFAULT nextval('seq_user_id'),
+band_name varchar(50) NOT NULL
+);
+
+COMMIT;
