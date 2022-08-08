@@ -10,20 +10,25 @@ public class Band {
 
     private int bandId;
     private String bandName;
+    private String description;
     @JsonIgnore
     private boolean activated;
 
+    public Band() {
 
-
-    public Band(int bandId, String bandName, boolean activated) {
+    }
+    public Band(int bandId, String bandName, String description, boolean activated) {
         this.bandId = bandId;
         this.bandName = bandName;
+        this.description = description;
         this.activated = activated;
     }
 
     public int getBandId() {
         return bandId;
     }
+
+    public String getDescription() { return description;}
 
     public String getBandName() {
         return bandName;
@@ -33,6 +38,8 @@ public class Band {
         return activated;
     }
 
+    public void setBandID(int bandId) { this.bandId = bandId;}
+
     public void setBandName(String bandName) {
         this.bandName = bandName;
     }
@@ -40,6 +47,8 @@ public class Band {
     public void setActivated(boolean activated) {
         this.activated = activated;
     }
+
+    public void setDescription(String description) { this.description = description;}
 
     @Override
     public boolean equals(Object o) {
