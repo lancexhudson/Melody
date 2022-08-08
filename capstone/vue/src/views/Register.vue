@@ -112,7 +112,7 @@ export default {
 </script>
 
 <style>
-body {
+/* body {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -122,7 +122,7 @@ body {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   height: 100vh;
 }
-#form-signin {
+#form-register {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -157,5 +157,5 @@ img {
 .link {
   color: inherit;
   text-decoration: none;
-}
+} */
 </style>
