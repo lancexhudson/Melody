@@ -13,6 +13,8 @@ public interface BandDao {
 
     Band getBandByName(String bandName);
 
+    boolean createBand(Band newBand);
+
 
 
 }
