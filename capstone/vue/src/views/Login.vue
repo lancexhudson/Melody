@@ -7,6 +7,7 @@
         class="image"
       />
     </div>
+
     <h1 class="h3 mb-3 font-weight-normal">Experience Music Together</h1>
     <form class="form-signin" @submit.prevent="login">
       <div class="alert alert-danger" role="alert" v-if="invalidCredentials">
@@ -100,7 +101,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-content: center;
-  background: black;
+  background: rgb(0, 0, 0);
   color: white;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   height: 100vh;
