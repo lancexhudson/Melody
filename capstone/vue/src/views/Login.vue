@@ -7,6 +7,7 @@
         class="image"
       />
     </div>
+
     <h1 class="h3 mb-3 font-weight-normal">Experience Music Together</h1>
     <form class="form-signin" @submit.prevent="login">
       <div class="alert alert-danger" role="alert" v-if="invalidCredentials">
@@ -100,10 +101,13 @@ body {
   flex-direction: column;
   justify-content: center;
   align-content: center;
-  background: black;
+  background: rgb(0, 0, 0);
   color: white;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   height: 100vh;
+  background-image: url("https://lh3.googleusercontent.com/OxeSuIiaRjzZrbyTWytTEr-C31I4sRARl7S3Q2WCCCUUHwPljTx9-eYAEsGb8SRSmYVi9ZZIU9xg5npWTKF4YYAJH8gv3DI9ECpZHi40S_HJ3LnNpq7x7YNIL7f0xNO92dwAD7F9NqpgB3b2q_QSfsh8dPAsh31gedOf0PQ5Zv9Srt1iY4MncdQaH3IjU_tcwrndcHIsG9UHgMNCgf8O5HwnEJ9hBE9-64vjCBJlc8jjgog6BO2DUyszbEmHjdzczw9vKFkFZ4v9bNCzPvZ7uPTvF4ZHI13ofFuh1LOnko1qTtaNF19j2JeprTWRdCsHbvJOepB2sZ1Q6txg5x-DIF4d0UwruZoZluazgWT0cJy8OI0a03aMbO3pQpfB8sNISxTh3HSZsoDsTsIs5l4DvirDRRkgDOIDQ-6Fg3CH0g2TiIuQx8hTTCK79RKg6Vhn5Wl5F2S6iGF8jD3tyiTtxV-IAOT7LSB45_Y-nBrDK8tHGYQpMs4m0wfZTtmN6-9YiJYtYCCz0wXacO47r26wfUL75IQru8FG_Lj0tciRZLRRglo86GQR4s0MSxFMYzjO62j_YHc34HbHHUyLGXMI5BJ8N6wyAr5Nxu9n0aDv9Uo0LFA8fB6nE4ShrhXswKGGHCwXsjZTDmoZDoNwiAcafMj6hXEraozOvBkAOJslfqeHS1HdOmcd0QzjgWtg-1Qf0BDYGM27twCpMzLKV4OvL1MEf2N-01xPPFbHqkzFn-QCoH5qCtp7gdAnqE0vzg=w1318-h880-no?authuser=0");
+  background-position: center;
+  background-size: cover;
 }
 #login {
   display: flex;
@@ -136,7 +140,7 @@ li {
 }
 
 /* need to make image responsive */
-img {
+.image {
   display: flex;
   max-width: 300px;
 }
