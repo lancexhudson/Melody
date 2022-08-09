@@ -25,7 +25,7 @@ public class JdbcBandDao implements BandDao {
     @Override
     public List<Band> listAllBands() {
         List<Band> allBands = new ArrayList<>();
-        String sql = "SELECT band_id, band_name, description FROM band";
+        String sql = "SELECT band_id, band_name, description, genre, image_link FROM band";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
             while (results.next()) {
                 Band band = mapRowToBand(results);
