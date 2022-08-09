@@ -73,6 +73,10 @@ public class JdbcBandDao implements BandDao {
         User user = jdbcUserDao.findByUsername(principal.getName());
         String sql2 = "INSERT INTO band_user (user_id, band_id) VALUES (?,?) RETURNING band_id;";
         int bandId2 = jdbcTemplate.queryForObject(sql2, int.class, user.getId(), newBand.getBandId());
+        String newRole = "USER, BAND_MANAGER";
+        user.setAuthorities(newRole);
+        String sql3 = "UPDATE users SET role = ? WHERE user_id = ?;";
+        jdbcTemplate.update(sql3, newRole, user.getId());
         return true;
     }
 
