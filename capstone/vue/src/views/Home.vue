@@ -1,5 +1,12 @@
 <template>
   <div class="home">
+    <div>
+      <img
+        src="..\assets\LOGO TRANSPARENCY white.png"
+        alt="Melody Logo"
+        class="homelogo"
+      />
+    </div>
     <!-- <h1>Home</h1>
     <p>You must be authenticated to see this</p> -->
   </div>
