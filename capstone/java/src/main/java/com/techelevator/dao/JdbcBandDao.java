@@ -2,11 +2,8 @@ package com.techelevator.dao;
 
 import com.techelevator.model.Band;
 import com.techelevator.model.BandNotFoundException;
-import com.techelevator.model.UserNotFoundException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
-import org.springframework.security.access.prepost.PostAuthorize;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -61,9 +58,12 @@ public class JdbcBandDao implements BandDao {
     }
 
     @Override
-    public boolean createBand(Band newBand){
+    public boolean createBand(String bandName, String description){
+        Band newBand = new Band();
+        newBand.setBandName(bandName);
+        newBand.setDescription(description);
         String sql = "INSERT INTO band (band_name, description) VALUES (?, ?) RETURNING band_id;";
-        int bandId = jdbcTemplate.queryForObject(sql, int.class, newBand.getBandName(), newBand.getDescription());
+        int bandId = jdbcTemplate.queryForObject(sql, int.class, bandName, description);
         newBand.setBandID(bandId);
         return true;
     }
