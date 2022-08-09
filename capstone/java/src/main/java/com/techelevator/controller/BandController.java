@@ -23,12 +23,12 @@ public class BandController {
         return bandDao.listAllBands();
     }
 
-    @RequestMapping(path = "/bands/{genre}", method = RequestMethod.GET)
+    @RequestMapping(path = "/bands/genre/{genre}", method = RequestMethod.GET)
     public List<Band> bandsByGenre (@PathVariable("genre") String genre){
         return bandDao.listBandsByGenre(genre);
     }
 
-    @RequestMapping(path = "/bands/{name}", method = RequestMethod.GET)
+    @RequestMapping(path = "/bands/name/{name}", method = RequestMethod.GET)
     public Band band (@PathVariable("name") String bandName){
         return bandDao.getBandByName(bandName);
     }

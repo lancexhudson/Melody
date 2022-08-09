@@ -5,6 +5,8 @@ import com.techelevator.model.BandNotFoundException;
 import com.techelevator.model.UserNotFoundException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
+import org.springframework.security.access.prepost.PostAuthorize;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -20,7 +22,7 @@ public class JdbcBandDao implements BandDao {
     @Override
     public List<Band> listAllBands() {
         List<Band> allBands = new ArrayList<>();
-        String sql = "SELECT band_id, band_name, description FROM band;";
+        String sql = "SELECT band_id, band_name, description FROM band";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
             while (results.next()) {
                 Band band = mapRowToBand(results);
@@ -57,12 +59,20 @@ public class JdbcBandDao implements BandDao {
             throw new BandNotFoundException();
     }
 
+    @Override
+    public boolean createBand(Band newBand){
+        String sql = "INSERT INTO band (band_name, description) VALUES (?, ?) RETURNING band_id;";
+        int bandId = jdbcTemplate.queryForObject(sql, int.class, newBand.getBandName(), newBand.getDescription());
+        newBand.setBandID(bandId);
+        return true;
+    }
+
     private Band mapRowToBand(SqlRowSet rs) {
         Band band = new Band();
         band.setBandID(rs.getInt("band_id"));
         band.setBandName(rs.getString("band_name"));
         band.setDescription(rs.getString("description"));
-        band.setActivated(true);
+//        band.setActivated(true);
         return band;
     }
 
