@@ -4,7 +4,7 @@
       <img
         src="..\assets\LOGO TRANSPARENCY white.png"
         alt="Melody Logo"
-        class="image"
+        class="logo"
       />
     </div>
 
@@ -141,7 +141,7 @@ li {
 }
 
 /* need to make image responsive */
-.image {
+.logo {
   display: flex;
   max-width: 300px;
 }
