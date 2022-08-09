@@ -16,10 +16,10 @@
         <li>
           <label for="username" class="sr-only"></label>
           <input
-            type="text"
+            type="email"
             id="username"
             class="form-control"
-            placeholder="Username"
+            placeholder="Email"
             v-model="user.username"
             required
             autofocus
@@ -33,6 +33,7 @@
             class="form-control"
             placeholder="Password"
             v-model="user.password"
+            pattern=".{8,12}"
             required
           />
         </li>
