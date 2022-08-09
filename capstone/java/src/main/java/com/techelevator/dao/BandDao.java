@@ -3,6 +3,7 @@ package com.techelevator.dao;
 import com.techelevator.model.Band;
 import com.techelevator.model.BandNotFoundException;
 
+import java.security.Principal;
 import java.util.List;
 
 public interface BandDao {
@@ -13,5 +14,5 @@ public interface BandDao {
 
     Band getBandByName(String bandName);
 
-    boolean createBand(String bandName, String description);
+    boolean createBand(String bandName, String description, Principal principal);
 }
