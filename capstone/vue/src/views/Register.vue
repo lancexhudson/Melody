@@ -112,13 +112,17 @@ export default {
 </script>
 
 <style>
-/* body {
+#register {
+  margin: -30px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-content: center;
   background: black;
   color: white;
+  background-image: url("~@/assets/drum.png");
+  background-position: bottom;
+  background-size: cover;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   height: 100vh;
 }
@@ -150,6 +154,7 @@ li {
   align-items: center;
 }
 img {
+  margin-top: 130px;
   display: flex;
   max-width: 300px;
 }
@@ -157,5 +162,5 @@ img {
 .link {
   color: inherit;
   text-decoration: none;
-} */
+}
 </style>

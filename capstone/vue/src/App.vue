@@ -1,3 +1,4 @@
+
 <template>
   <div id="app">
     <div id="nav">
@@ -11,3 +12,9 @@
     <router-view />
   </div>
 </template>
+
+<style>
+body {
+  margin: 0px, 0px, 0px, 0px;
+}
+</style>

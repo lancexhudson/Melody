@@ -3,7 +3,7 @@
     <div>
       <img
         src="..\assets\LOGO TRANSPARENCY white.png"
-        alt="not found"
+        alt="Melody Logo"
         class="image"
       />
     </div>
@@ -96,7 +96,8 @@ export default {
 </script>
 
 <style>
-body {
+#login {
+  margin: -30px;
   display: flex;
   flex-direction: column;
   justify-content: center;
