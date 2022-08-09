@@ -14,5 +14,5 @@ public interface BandDao {
 
     Band getBandByName(String bandName);
 
-    boolean createBand(String bandName, String description, Principal principal);
+    boolean createBand(String bandName, String description, String imageLink, String genre, Principal principal);
 }

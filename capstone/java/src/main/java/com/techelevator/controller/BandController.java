@@ -43,18 +43,7 @@ public class BandController {
     @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping (path = "/bands/register", method = RequestMethod.POST)
     public void createBand (Principal principal, @Valid @RequestBody BandDto newBand){
-//        Band newBand = new Band();
-//        User bandManager = new User();
-//        bandManager.setAuthorities("BAND_MANAGER");
-        bandDao.createBand(newBand.getBandName(), newBand.getDescription(), principal);
-//        if (!bandDao.createBand(newBand.getBandName(), newBand.getDescription())) {
-//            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Band registration failed.");
-//        }
-
-        //TODO: make the user who creates the account the band manager role.
-        //DONE: created band is added to database
-
-        //want to check for duplicate bands, but not essential
+        bandDao.createBand(newBand.getBandName(), newBand.getDescription(), newBand.getGenre(), newBand.getImageLink(), principal);
     }
 
 }

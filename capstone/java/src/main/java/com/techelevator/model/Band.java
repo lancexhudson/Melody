@@ -11,17 +11,21 @@ public class Band {
     private int bandId;
     private String bandName;
     private String description;
+    private String imageLink;
+    private String genre;
     @JsonIgnore
     private boolean activated;
 
     public Band() {
 
     }
-    public Band(int bandId, String bandName, String description, boolean activated) {
+    public Band(int bandId, String bandName, String description, String imageLink, String genre, boolean activated) {
         this.bandId = bandId;
         this.bandName = bandName;
         this.description = description;
+        this.imageLink = imageLink;
         this.activated = activated;
+        this.genre = genre;
     }
 
     public int getBandId() {
@@ -49,6 +53,22 @@ public class Band {
     }
 
     public void setDescription(String description) { this.description = description;}
+
+    public String getImageLink() {
+        return imageLink;
+    }
+
+    public void setImageLink(String imageLink) {
+        this.imageLink = imageLink;
+    }
+
+    public String getGenre() {
+        return genre;
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre;
+    }
 
     @Override
     public boolean equals(Object o) {

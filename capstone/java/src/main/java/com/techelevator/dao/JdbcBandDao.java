@@ -63,12 +63,12 @@ public class JdbcBandDao implements BandDao {
     }
 
     @Override
-    public boolean createBand(String bandName, String description, Principal principal){
+    public boolean createBand(String bandName, String description, String imageLink, String genre, Principal principal){
         Band newBand = new Band();
         newBand.setBandName(bandName);
         newBand.setDescription(description);
-        String sql = "INSERT INTO band (band_name, description) VALUES (?, ?) RETURNING band_id;";
-        int bandId = jdbcTemplate.queryForObject(sql, int.class, bandName, description);
+        String sql = "INSERT INTO band (band_name, description, genre, image_link) VALUES (?, ?, ?, ?) RETURNING band_id;";
+        int bandId = jdbcTemplate.queryForObject(sql, int.class, bandName, description, genre, imageLink);
         newBand.setBandID(bandId);
         User user = jdbcUserDao.findByUsername(principal.getName());
         String sql2 = "INSERT INTO band_user (user_id, band_id) VALUES (?,?) RETURNING band_id;";
@@ -85,7 +85,8 @@ public class JdbcBandDao implements BandDao {
         band.setBandID(rs.getInt("band_id"));
         band.setBandName(rs.getString("band_name"));
         band.setDescription(rs.getString("description"));
-//        band.setActivated(true);
+        band.setGenre(rs.getString("genre"));
+        band.setImageLink((rs.getString("image_link")));
         return band;
     }
 
