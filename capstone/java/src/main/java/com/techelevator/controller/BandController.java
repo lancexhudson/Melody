@@ -6,6 +6,7 @@ import com.techelevator.model.BandAlreadyExistsException;
 import com.techelevator.model.BandDto;
 import com.techelevator.model.User;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -13,6 +14,7 @@ import javax.validation.Valid;
 import java.security.Principal;
 import java.util.List;
 
+//@PreAuthorize("isAuthenticated")
 @RestController
 @CrossOrigin
 public class BandController {
@@ -42,15 +44,15 @@ public class BandController {
     @RequestMapping (path = "/bands/register", method = RequestMethod.POST)
     public void createBand (Principal principal, @Valid @RequestBody BandDto newBand){
 //        Band newBand = new Band();
-        User bandManager = new User();
-        bandManager.setAuthorities("BAND_MANAGER");
-        bandDao.createBand(newBand.getBandName(), newBand.getDescription());
+//        User bandManager = new User();
+//        bandManager.setAuthorities("BAND_MANAGER");
+        bandDao.createBand(newBand.getBandName(), newBand.getDescription(), principal);
 //        if (!bandDao.createBand(newBand.getBandName(), newBand.getDescription())) {
 //            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Band registration failed.");
 //        }
 
         //TODO: make the user who creates the account the band manager role.
-        //TODO: created band is added to database
+        //DONE: created band is added to database
 
         //want to check for duplicate bands, but not essential
     }

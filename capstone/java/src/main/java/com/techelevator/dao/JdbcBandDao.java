@@ -2,19 +2,24 @@ package com.techelevator.dao;
 
 import com.techelevator.model.Band;
 import com.techelevator.model.BandNotFoundException;
+import com.techelevator.model.User;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 
+import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
 
 @Component
 public class JdbcBandDao implements BandDao {
     private final JdbcTemplate jdbcTemplate;
+    private final JdbcUserDao jdbcUserDao;
+    public JdbcBandDao(JdbcTemplate jdbcTemplate, JdbcUserDao jdbcUserDao){
+        this.jdbcTemplate = jdbcTemplate;
+        this.jdbcUserDao = jdbcUserDao;
+    }
 
-    public JdbcBandDao(JdbcTemplate jdbcTemplate){
-        this.jdbcTemplate = jdbcTemplate;}
 
 
     @Override
@@ -58,13 +63,20 @@ public class JdbcBandDao implements BandDao {
     }
 
     @Override
-    public boolean createBand(String bandName, String description){
+    public boolean createBand(String bandName, String description, Principal principal){
         Band newBand = new Band();
         newBand.setBandName(bandName);
         newBand.setDescription(description);
         String sql = "INSERT INTO band (band_name, description) VALUES (?, ?) RETURNING band_id;";
         int bandId = jdbcTemplate.queryForObject(sql, int.class, bandName, description);
         newBand.setBandID(bandId);
+        User user = jdbcUserDao.findByUsername(principal.getName());
+        String sql2 = "INSERT INTO band_user (user_id, band_id) VALUES (?,?) RETURNING band_id;";
+        int bandId2 = jdbcTemplate.queryForObject(sql2, int.class, user.getId(), newBand.getBandId());
+        String newRole = "USER, BAND_MANAGER";
+        user.setAuthorities(newRole);
+        String sql3 = "UPDATE users SET role = ? WHERE user_id = ?;";
+        jdbcTemplate.update(sql3, newRole, user.getId());
         return true;
     }
 
