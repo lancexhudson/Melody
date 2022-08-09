@@ -2,14 +2,14 @@ package com.techelevator.controller;
 
 import com.techelevator.dao.BandDao;
 import com.techelevator.model.Band;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
+@CrossOrigin
 public class BandController {
 
     private BandDao bandDao;
@@ -32,5 +32,9 @@ public class BandController {
     public Band band (@PathVariable("name") String bandName){
         return bandDao.getBandByName(bandName);
     }
+
+    //@ResponseStatus(HttpStatus.CREATED)
+//    @RequestMapping (path = "/bands/register", method = RequestMethod.POST)
+//    public void register (@Valid @RequestBody)
 
 }

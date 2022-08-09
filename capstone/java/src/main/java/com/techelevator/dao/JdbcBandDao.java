@@ -16,7 +16,8 @@ import java.util.List;
 public class JdbcBandDao implements BandDao {
     private final JdbcTemplate jdbcTemplate;
 
-    public JdbcBandDao(JdbcTemplate jdbcTemplate){ this.jdbcTemplate = jdbcTemplate;}
+    public JdbcBandDao(JdbcTemplate jdbcTemplate){
+        this.jdbcTemplate = jdbcTemplate;}
 
 
     @Override
