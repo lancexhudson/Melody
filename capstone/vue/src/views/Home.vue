@@ -20,14 +20,16 @@
 // import FavoriteBands from "@/components/FavoriteBands";
 import BandList from "@/components/BandList.vue";
 export default {
+  beforeCreate: function () {
+    document.body.className = "home";
+  },
   name: "home",
   components: { BandList },
 };
 </script>
 
 <style>
-.home {
-  margin: -30px;
+body.home {
   display: flex;
   text-align: center;
   flex-direction: column;
