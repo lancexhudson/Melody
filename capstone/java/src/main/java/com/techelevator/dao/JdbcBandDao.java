@@ -63,7 +63,7 @@ public class JdbcBandDao implements BandDao {
     }
 
     @Override
-    public boolean createBand(String bandName, String description, String imageLink, String genre, Principal principal){
+    public boolean createBand(String bandName, String description, String genre, String imageLink, Principal principal){
         Band newBand = new Band();
         newBand.setBandName(bandName);
         newBand.setDescription(description);
