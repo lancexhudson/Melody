@@ -1,5 +1,5 @@
 <template>
-  <div id="login" class="text-center">
+  <div id="login" class="login">
     <div>
       <img
         src="..\assets\LOGO TRANSPARENCY white.png"
@@ -61,6 +61,9 @@
 import authService from "../services/AuthService";
 
 export default {
+  beforeCreate: function () {
+    document.body.className = "login";
+  },
   name: "login",
   components: {},
   data() {
@@ -96,8 +99,7 @@ export default {
 </script>
 
 <style>
-#login {
-  margin: -30px;
+body.login {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -109,11 +111,6 @@ export default {
   background-image: url("~@/assets/crowd.png");
   background-position: center;
   background-size: cover;
-}
-#login {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 #form-signin {

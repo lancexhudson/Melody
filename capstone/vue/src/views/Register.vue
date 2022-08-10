@@ -1,5 +1,5 @@
 <template>
-  <div id="register" class="text-center">
+  <div id="register" class="register">
     <div>
       <img
         src="..\assets\LOGO TRANSPARENCY white.png"
@@ -66,6 +66,9 @@
 import authService from "../services/AuthService";
 
 export default {
+  beforeCreate: function () {
+    document.body.className = "register";
+  },
   name: "register",
   data() {
     return {
@@ -113,8 +116,7 @@ export default {
 </script>
 
 <style>
-#register {
-  margin: -30px;
+body.register {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
