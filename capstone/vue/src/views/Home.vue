@@ -8,7 +8,7 @@
       alt="Melody Logo"
       class="homelogo"
     />
-
+    <router-link :to="{ name: 'addBand' }">Add new Band</router-link>
     <!-- <h1>Home</h1>
     <p>You must be authenticated to see this</p> -->
     <!-- <favorite-bands /> -->

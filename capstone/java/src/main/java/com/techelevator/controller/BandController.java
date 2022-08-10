@@ -43,7 +43,7 @@ public class BandController {
     @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping (path = "/bands/register", method = RequestMethod.POST)
     public void createBand (Principal principal, @Valid @RequestBody BandDto newBand){
-        bandDao.createBand(newBand.getBandName(), newBand.getDescription(), newBand.getGenre(), newBand.getImageLink(), principal);
+        bandDao.createBand(newBand.getBandName(), newBand.getDescription(), newBand.getGenre(), newBand.getImageLink(),principal);
     }
 
 }

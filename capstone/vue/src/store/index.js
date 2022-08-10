@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
+import bandService from '@/services/BandService.js'
 
 Vue.use(Vuex)
 
@@ -21,6 +22,10 @@ export default new Vuex.Store({
     token: currentToken || '',
     user: currentUser || {},
     bands: [],
+
+  },
+  components: {
+    bandService,
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -42,5 +47,8 @@ export default new Vuex.Store({
     SET_BANDS(state, data) {
       state.bands = data;
     },
+    SAVE_BAND(band) {
+      bandService.createBand(band);
+    }
   }
 })
