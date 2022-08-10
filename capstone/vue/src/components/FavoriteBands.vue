@@ -1,5 +1,13 @@
 <template>
-  <div></div>
+  <div>
+    <table>
+      <tr v-for="band in this.$store.state.bands" v-bind:key="band.id">
+        <td>
+          {{ band.bandName }}
+        </td>
+      </tr>
+    </table>
+  </div>
 </template>
 
 <script>
@@ -12,6 +20,9 @@ export default {
         this.$store.commit("SET_BANDS", response.data);
       });
     },
+  },
+  created() {
+    this.listBands();
   },
 };
 </script>

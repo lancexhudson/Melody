@@ -1,23 +1,30 @@
+
+
+
 <template>
-  <div class="home">
+  <div class="nav">
     <img
       src="..\assets\LOGO TRANSPARENCY white.png"
       alt="Melody Logo"
       class="homelogo"
     />
+
     <!-- <h1>Home</h1>
     <p>You must be authenticated to see this</p> -->
+    <favorite-bands />
   </div>
 </template>
 
 <script>
+import FavoriteBands from "@/components/FavoriteBands";
 export default {
   name: "home",
+  components: { FavoriteBands },
 };
 </script>
 
 <style>
-.home {
+.nav {
   margin: -30px;
   text-align: center;
   display: flex;
