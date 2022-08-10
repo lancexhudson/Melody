@@ -12,14 +12,16 @@
     <!-- <h1>Home</h1>
     <p>You must be authenticated to see this</p> -->
     <favorite-bands />
+    <band-list></band-list>
   </div>
 </template>
 
 <script>
 import FavoriteBands from "@/components/FavoriteBands";
+import BandList from "@/components/BandList.vue";
 export default {
   name: "home",
-  components: { FavoriteBands },
+  components: { FavoriteBands, BandList },
 };
 </script>
 
