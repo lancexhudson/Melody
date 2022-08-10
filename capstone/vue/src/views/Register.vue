@@ -4,7 +4,7 @@
       <img
         src="..\assets\LOGO TRANSPARENCY white.png"
         alt="not found"
-        class="image"
+        class="registerlogo"
       />
     </div>
     <form class="form-register" @submit.prevent="register">
@@ -154,7 +154,7 @@ li {
   flex-direction: column;
   align-items: center;
 }
-img {
+.registerlogo {
   margin-top: 130px;
   display: flex;
   max-width: 300px;

@@ -14,12 +14,15 @@ export default {
 
 <style>
 .card {
-  border: solid rgb(0, 234, 255) 2px;
-  border-radius: 2rem;
-  background-color: rgb(195, 231, 223);
+  border: solid rgb(255, 255, 255) 2px;
+  border-radius: 0.5rem;
+  background-color: rgba(53, 53, 53, 0.7);
   padding: 4px;
+  width: 300px;
 }
 .cover {
-  border-radius: 2rem;
+  border-radius: 0.5rem;
+  max-width: 290px;
+  max-height: 100px;
 }
 </style>
