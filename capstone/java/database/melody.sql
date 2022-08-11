@@ -10,7 +10,7 @@ band_id int NOT NULL DEFAULT nextval('seq_band_id'),
 band_name varchar(50) NOT NULL,
 description varchar(140) NOT NULL,
 genre varchar(20) NOT NULL,
-image_link varchar(200),
+image_link varchar(1000),
 CONSTRAINT PK_band_id PRIMARY KEY (band_id)
 );
 CREATE SEQUENCE seq_genre_id
