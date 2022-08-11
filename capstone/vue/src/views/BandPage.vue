@@ -1,5 +1,7 @@
 <template>
-  <div></div>
+  <div>
+    <band-details></band-details>
+  </div>
 </template>
 
 <script>

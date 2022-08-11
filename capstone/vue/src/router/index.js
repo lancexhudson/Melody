@@ -61,8 +61,8 @@ const router = new Router({
       component: NewBand,
     },
     {
-      path: '/bands/name/:bandName',
-      name: 'bandPage',
+      path: '/bands/id/:bandId',
+      name: 'bandDetails',
       component: BandPage,
     },
   ]

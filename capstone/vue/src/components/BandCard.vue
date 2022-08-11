@@ -1,5 +1,6 @@
 <template>
   <div class="card">
+    <span v-on:click="getBand()">{{ bandId }}</span>
     <h2 class="band-name">{{ band.bandName }}</h2>
     <img class="cover" :src="band.imageLink" alt="Dave" />
   </div>

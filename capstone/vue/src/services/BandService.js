@@ -6,8 +6,8 @@ export default {
     listBands() {
         return axios.get('/bands')
     },
-    getBand(bandName) {
-        return axios.get(`/bands/name/${bandName}`);
+    getBand(bandId) {
+        return axios.get(`/bands/id/${bandId}`);
     },
     getBandsByGenre(genre) {
         return axios.get(`/bands/genre/${genre}`);

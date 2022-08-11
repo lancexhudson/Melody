@@ -1,6 +1,10 @@
 <template>
   <div class="band-details">
-    <h1>{{ this.$store.state }}</h1>
+    <router-link
+      v-bind:key="band.bandId"
+      :to="{ name: 'bandDetails', params: { bandId: 'band.bandId' } }"
+      ><band-card v-bind:band="band"
+    /></router-link>
   </div>
 </template>
 
@@ -10,14 +14,14 @@ export default {
   name: "band-details",
   data() {
     return {
-      name: this.$route.params.bandName,
+      name: this.$route.params.bandId,
     };
   },
   methods: {
-    getBand(name) {
-      bandService.getBand(name).then((response) => {
+    getBand(bandId) {
+      bandService.getBand(bandId).then((response) => {
         if (response.status === 200) {
-          this.$router.push("/bands/name/${this.bandName}");
+          this.$router.push("/bands/id/${this.bandId}");
         }
       });
     },
