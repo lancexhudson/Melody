@@ -19,12 +19,7 @@
         </textarea>
       </li>
       <li>
-        <select
-          name="genre-selector"
-          id="genre-select"
-          v-model="newBand.genre"
-          multiple
-        >
+        <select name="genre-selector" id="genre-select" v-model="newBand.genre">
           <option value="" disabled selected>Select Genre</option>
           <option value="Pop">Pop</option>
           <option value="Rock">Rock</option>
