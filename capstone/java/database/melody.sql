@@ -37,5 +37,10 @@ CONSTRAINT FK_band_id FOREIGN KEY (band_id) REFERENCES band(band_id),
 CONSTRAINT FK_user_id FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
 
+INSERT INTO genre (genre_name) 
+VALUES ('Pop'), ('Rock'), ('HipHop'), ('Classical'), ('R&B'),('Electronic'), ('Country'), 
+		('Blues'), ('Jazz'), ('Metal'), ('Reggae'), ('Folk'), ('Latin'), ('A Capella'), ('Funk'), 
+		('Worship'), ('Instrumental'), ('Punk'), ('Singer/Songwriter'), ('World');
+
 
 COMMIT;

@@ -1,10 +1,7 @@
 package com.techelevator.controller;
 
 import com.techelevator.dao.BandDao;
-import com.techelevator.model.Band;
-import com.techelevator.model.BandAlreadyExistsException;
-import com.techelevator.model.BandDto;
-import com.techelevator.model.User;
+import com.techelevator.model.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -47,8 +44,8 @@ public class BandController {
 
     @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping (path = "/bands/register", method = RequestMethod.POST)
-    public void createBand (Principal principal, @Valid @RequestBody BandDto newBand){
-        bandDao.createBand(newBand.getBandName(), newBand.getDescription(), newBand.getGenre(), newBand.getImageLink(),principal);
+    public void createBand (Principal principal, @Valid @RequestBody BandDto newBand, @RequestBody GenreDTO genreDTO){
+        bandDao.createBand(newBand.getBandName(), newBand.getDescription(), newBand.getImageLink(), genreDTO.getGenreName(), principal);
     }
 
 }

@@ -5,7 +5,6 @@ public class BandDto {
     private int bandId;
     private String bandName;
     private String description;
-    private String genre;
     private String imageLink;
     private boolean activated;
 
@@ -49,11 +48,4 @@ public class BandDto {
         this.imageLink = imageLink;
     }
 
-    public String getGenre() {
-        return genre;
-    }
-
-    public void setGenre(String genre) {
-        this.genre = genre;
-    }
 }

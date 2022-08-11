@@ -2,6 +2,7 @@ package com.techelevator.dao;
 
 import com.techelevator.model.Band;
 import com.techelevator.model.BandNotFoundException;
+import com.techelevator.model.GenreDTO;
 import com.techelevator.model.User;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
@@ -75,12 +76,12 @@ public class JdbcBandDao implements BandDao {
     }
 
     @Override
-    public boolean createBand(String bandName, String description, String genre, String imageLink, Principal principal){
+    public boolean createBand(String bandName, String description, String imageLink, String genreName, Principal principal){
         Band newBand = new Band();
         newBand.setBandName(bandName);
         newBand.setDescription(description);
-        String sql = "INSERT INTO band (band_name, description, genre, image_link) VALUES (?, ?, ?, ?) RETURNING band_id;";
-        int bandId = jdbcTemplate.queryForObject(sql, int.class, bandName, description, genre, imageLink);
+        String sql = "INSERT INTO band (band_name, description, genre, image_link) VALUES (?, ?, ?) RETURNING band_id;";
+        int bandId = jdbcTemplate.queryForObject(sql, int.class, bandName, description, imageLink);
         newBand.setBandID(bandId);
         User user = jdbcUserDao.findByUsername(principal.getName());
         String sql2 = "INSERT INTO band_user (user_id, band_id) VALUES (?,?) RETURNING band_id;";
