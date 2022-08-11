@@ -1,6 +1,7 @@
 <template>
   <div>
     <div class="searchBands">
+      <h1 v-if="isFilteredEmpty">NO MATCHING RESULTS</h1>
       <table id="tableBands">
         <thead>
           <tr>
@@ -19,10 +20,12 @@
       </table>
     </div>
     <div class="band-container">
+      <p v-if="isEmpty">NO MATCHING RESULTS</p>
       <band-card
         v-bind:band="band"
         v-for="band in filteredBandList"
         v-bind:key="band.id"
+        v-bind:filteredBandList="testArray"
       >
       </band-card>
     </div>
@@ -43,6 +46,8 @@ export default {
         bandName: "",
         genreFilter: "",
       },
+      isEmpty: this.isFilteredEmpty,
+      testArray: [],
     };
   },
   computed: {
@@ -63,6 +68,13 @@ export default {
         );
       }
       return filteredBands;
+    },
+    isFilteredEmpty() {
+      if (this.filteredBandList.length == 0) {
+        return true;
+      } else {
+        return false;
+      }
     },
   },
   methods: {
