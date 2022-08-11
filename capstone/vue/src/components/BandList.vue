@@ -1,25 +1,31 @@
 <template>
-  <div class="band-container">
-    <table id="tableBands">
-      <thead>
+  <div>
+    <div class="searchBands">
+      <table id="tableBands">
+        <thead>
+          <tr>
+            <th>Band Name</th>
+          </tr>
+        </thead>
+        <td>
+          <input type="text" id="bandNameFilter" v-model="filter.bandName" />
+        </td>
         <tr>
-          <th>Band Name</th>
           <th>Genre</th>
         </tr>
-      </thead>
-      <td>
-        <input type="text" id="bandNameFilter" v-model="filter.bandName" />
-      </td>
-      <td>
-        <input type="text" id="genreFilter" v-model="filter.genreFilter" />
-      </td>
-    </table>
-    <band-card
-      v-bind:band="band"
-      v-for="band in filteredBandList"
-      v-bind:key="band.id"
-    >
-    </band-card>
+        <td>
+          <input type="text" id="genreFilter" v-model="filter.genreFilter" />
+        </td>
+      </table>
+    </div>
+    <div class="band-container">
+      <band-card
+        v-bind:band="band"
+        v-for="band in filteredBandList"
+        v-bind:key="band.id"
+      >
+      </band-card>
+    </div>
   </div>
 </template>
 
@@ -77,5 +83,14 @@ export default {
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
+}
+#tableBands {
+  align-self: flex-end;
+}
+#tableBands {
+  display: flex;
+  align-items: flex-start;
+
+  flex-direction: column;
 }
 </style>

@@ -2,17 +2,20 @@
 
 
 <template>
-  <div class="home">
-    <img
-      src="..\assets\LOGO TRANSPARENCY white.png"
-      alt="Melody Logo"
-      class="homelogo"
-    />
-    <router-link :to="{ name: 'addBand' }">Add new Band</router-link>
-    <!-- <h1>Home</h1>
-    <p>You must be authenticated to see this</p> -->
-    <!-- <favorite-bands /> -->
-    <band-list></band-list>
+  <div>
+    <router-link v-bind:to="{ name: 'home' }" class="logoContainer">
+      <img
+        src="..\assets\LOGO TRANSPARENCY white.png"
+        alt="Melody Logo"
+        class="homelogo"
+      />
+    </router-link>
+    <div class="home">
+      <router-link class="addBand" :to="{ name: 'addBand' }"
+        >Add new Band</router-link
+      >
+      <band-list></band-list>
+    </div>
   </div>
 </template>
 
@@ -45,10 +48,20 @@ body.home {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   height: 100vh;
 }
+.logoContainer {
+  display: flex;
+  align-self: flex-start;
+  margin-right: 1600px;
+}
 .homelogo {
-  align-self: center;
-  justify-items: center;
+  align-self: flex-start;
+  justify-items: flex-start;
   max-width: 300px;
-  margin: 100px;
+  margin: 8px;
+  flex-shrink: 1;
+}
+.addBand {
+  color: rgb(250, 250, 250);
+  font-size: 14pt;
 }
 </style>
