@@ -4,11 +4,14 @@
       <thead>
         <tr>
           <th>Band Name</th>
-          <!-- <th>Genre</th> -->
+          <th>Genre</th>
         </tr>
       </thead>
       <td>
         <input type="text" id="bandNameFilter" v-model="filter.bandName" />
+      </td>
+      <td>
+        <input type="text" id="genreFilter" v-model="filter.genreFilter" />
       </td>
     </table>
     <band-card
@@ -32,7 +35,7 @@ export default {
     return {
       filter: {
         bandName: "",
-        // genreFilter: "",
+        genreFilter: "",
       },
     };
   },
@@ -44,6 +47,13 @@ export default {
           band.bandName
             .toLowerCase()
             .includes(this.filter.bandName.toLowerCase())
+        );
+      }
+      if (this.filter.genreFilter != "") {
+        filteredBands = filteredBands.filter((band) =>
+          band.genre
+            .toLowerCase()
+            .includes(this.filter.genreFilter.toLowerCase())
         );
       }
       return filteredBands;
