@@ -1,8 +1,9 @@
 <template>
   <div class="card">
-    <span v-on:click="getBand()">{{ bandId }}</span>
-    <h2 class="band-name">{{ band.bandName }}</h2>
-    <img class="cover" :src="band.imageLink" alt="Dave" />
+    <router-link :to="{ name: 'bandDetails', params: { bandId: band.bandId } }">
+      <h2 class="band-name">{{ band.bandName }}</h2>
+      <img class="cover" :src="band.imageLink" alt="band-image" />
+    </router-link>
   </div>
 </template>
 
