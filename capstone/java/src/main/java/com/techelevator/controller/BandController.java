@@ -40,6 +40,11 @@ public class BandController {
         return bandDao.getBandByName(bandName);
     }
 
+    @RequestMapping(path = "/bands/id/{id}", method = RequestMethod.GET)
+    public Band band (@PathVariable("id") int bandId){
+        return bandDao.getBandById(bandId);
+    }
+
     @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping (path = "/bands/register", method = RequestMethod.POST)
     public void createBand (Principal principal, @Valid @RequestBody BandDto newBand){

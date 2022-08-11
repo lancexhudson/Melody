@@ -63,6 +63,18 @@ public class JdbcBandDao implements BandDao {
     }
 
     @Override
+    public Band getBandById(int bandId) throws BandNotFoundException {
+        String sql = "SELECT band_id, band_name, description, genre, image_link FROM band WHERE band_id = ?;";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, bandId);
+        Band theBand = new Band();
+        if (results.next()) {
+            theBand = mapRowToBand(results);
+            return theBand;
+        }
+        throw new BandNotFoundException();
+    }
+
+    @Override
     public boolean createBand(String bandName, String description, String genre, String imageLink, Principal principal){
         Band newBand = new Band();
         newBand.setBandName(bandName);
