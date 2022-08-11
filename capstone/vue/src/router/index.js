@@ -6,6 +6,7 @@ import Logout from '../views/Logout.vue'
 import Register from '../views/Register.vue'
 import store from '../store/index'
 import NewBand from '../views/NewBand'
+import BandPage from '../views/BandPage'
 
 Vue.use(Router)
 
@@ -58,6 +59,11 @@ const router = new Router({
       path: '/bandForm',
       name: 'addBand',
       component: NewBand,
+    },
+    {
+      path: '/bands/name/:bandName',
+      name: 'bandPage',
+      component: BandPage,
     },
   ]
 })
