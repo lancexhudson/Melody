@@ -6,7 +6,7 @@
         class="homeLink"
         v-if="this.$router.currentRoute.path != '/'"
         v-bind:to="{ name: 'home' }"
-        >Home</router-link
+      ></router-link
       >&nbsp;&nbsp;
       <router-link
         class="logOut"
