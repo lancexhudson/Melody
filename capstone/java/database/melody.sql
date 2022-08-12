@@ -9,7 +9,6 @@ CREATE TABLE band (
 band_id int NOT NULL DEFAULT nextval('seq_band_id'),
 band_name varchar(50) NOT NULL,
 description varchar(140) NOT NULL,
-genre varchar(20) NOT NULL,
 image_link varchar(1000),
 CONSTRAINT PK_band_id PRIMARY KEY (band_id)
 );
@@ -25,7 +24,7 @@ CONSTRAINT PK_genre_id PRIMARY KEY (genre_id)
 CREATE TABLE band_genre (
 band_id int NOT NULL,
 genre_id int NOT NULL,
-CONSTRAINT PK_band_genre_band_id PRIMARY KEY (band_id),
+CONSTRAINT PK_band_genre_band_id PRIMARY KEY (band_id, genre_id),
 CONSTRAINT FK_band_id FOREIGN KEY (band_id) REFERENCES band(band_id),
 CONSTRAINT FK_genre_id FOREIGN KEY (genre_id) REFERENCES genre(genre_id)
 );

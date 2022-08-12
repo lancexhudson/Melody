@@ -4,12 +4,14 @@ import com.techelevator.model.Band;
 import com.techelevator.model.BandNotFoundException;
 import com.techelevator.model.GenreDTO;
 import com.techelevator.model.User;
+import org.springframework.data.relational.core.sql.In;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 
 import java.security.Principal;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Component
@@ -26,7 +28,7 @@ public class JdbcBandDao implements BandDao {
     @Override
     public List<Band> listAllBands() {
         List<Band> allBands = new ArrayList<>();
-        String sql = "SELECT band_id, band_name, description, genre, image_link FROM band ORDER BY band_name";
+        String sql = "SELECT band_id, band_name, description, image_link FROM band ORDER BY band_name";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
             while (results.next()) {
                 Band band = mapRowToBand(results);
@@ -76,11 +78,11 @@ public class JdbcBandDao implements BandDao {
     }
 
     @Override
-    public boolean createBand(String bandName, String description, String imageLink, String genreName, Principal principal){
+    public boolean createBand(String bandName, String description, String imageLink, Integer[] genreId, Principal principal){
         Band newBand = new Band();
         newBand.setBandName(bandName);
         newBand.setDescription(description);
-        String sql = "INSERT INTO band (band_name, description, genre, image_link) VALUES (?, ?, ?) RETURNING band_id;";
+        String sql = "INSERT INTO band (band_name, description, image_link) VALUES (?, ?, ?) RETURNING band_id;";
         int bandId = jdbcTemplate.queryForObject(sql, int.class, bandName, description, imageLink);
         newBand.setBandID(bandId);
         User user = jdbcUserDao.findByUsername(principal.getName());
@@ -90,15 +92,26 @@ public class JdbcBandDao implements BandDao {
         user.setAuthorities(newRole);
         String sql3 = "UPDATE users SET role = ? WHERE user_id = ?;";
         jdbcTemplate.update(sql3, newRole, user.getId());
+        List<Integer> genreIds = Arrays.asList(genreId);
+        setGenres(genreIds, bandId);
         return true;
     }
+
+    @Override
+    public void setGenres(List<Integer> genreIds, int bandId) {
+        String sql = "INSERT INTO band_genre (band_id, genre_id) VALUES (?,?)";
+        for (int id : genreIds) {
+            jdbcTemplate.update(sql, bandId, id);
+        }
+
+    }
+
 
     private Band mapRowToBand(SqlRowSet rs) {
         Band band = new Band();
         band.setBandID(rs.getInt("band_id"));
         band.setBandName(rs.getString("band_name"));
         band.setDescription(rs.getString("description"));
-        band.setGenre(rs.getString("genre"));
         band.setImageLink((rs.getString("image_link")));
         return band;
     }
