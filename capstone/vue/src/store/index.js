@@ -23,7 +23,9 @@ export default new Vuex.Store({
     token: currentToken || '',
     user: currentUser || {},
     bands: [],
-    myBands: [],
+    favorite: {
+      favBandId: 0
+    },
     genres: [],
 
   },
@@ -53,8 +55,8 @@ export default new Vuex.Store({
     SAVE_BAND(band) {
       bandService.createBand(band);
     },
-    FOLLOW_BAND(store, band) {
-      store.myBands.push(band);
+    FOLLOW_BAND(store, bandId) {
+      store.favorite.favBandId = bandId;
     },
     SET_GENRES(state, data) {
       state.genres = data;

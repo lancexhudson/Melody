@@ -9,13 +9,14 @@
         Follow Band
       </button>
     </div> -->
-    <button type="submit" v-on:click.prevent="addToFollowList(band)">
+    <button type="submit" v-on:click.prevent="toggleFavorite(band.bandId)">
       Test Button
     </button>
   </div>
 </template>
 
 <script>
+import bandService from "@/services/BandService.js";
 export default {
   name: "band-card",
   props: ["band"],
@@ -25,9 +26,9 @@ export default {
     default: false,
   },
   methods: {
-    addToFollowList(band) {
-      let followedBand = Object.assign(band);
-      this.$store.commit("FOLLOW_BAND", followedBand);
+    toggleFavorite(bandId) {
+      this.$store.commit("FOLLOW_BAND", bandId);
+      bandService.makeFavorite(this.$store.state.favorite);
     },
   },
 };

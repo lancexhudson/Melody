@@ -28,6 +28,13 @@ CONSTRAINT PK_band_genre_band_id PRIMARY KEY (band_id, genre_id),
 CONSTRAINT FK_band_id FOREIGN KEY (band_id) REFERENCES band(band_id),
 CONSTRAINT FK_genre_id FOREIGN KEY (genre_id) REFERENCES genre(genre_id)
 );
+CREATE TABLE user_favorite_bands (
+user_id int NOT NULL,
+band_id int NOT NULL,
+CONSTRAINT PK_band_fan PRIMARY KEY (user_id, band_id),
+CONSTRAINT FK_band_id FOREIGN KEY (band_id) REFERENCES band(band_id),
+CONSTRAINT FK_user_id FOREIGN KEY (user_id) REFERENCES users(user_id)
+);
 CREATE TABLE band_user (
 band_id int NOT NULL,
 user_id int NOT NULL,

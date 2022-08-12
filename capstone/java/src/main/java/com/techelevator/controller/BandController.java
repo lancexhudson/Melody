@@ -48,4 +48,10 @@ public class BandController {
         bandDao.createBand(newBand.getBandName(), newBand.getDescription(), newBand.getImageLink(), newBand.getGenre(), principal);
     }
 
+    @ResponseStatus(HttpStatus.CREATED)
+    @RequestMapping(path = "/bands/favorites", method = RequestMethod.PUT)
+    public void favoriteBand (Principal principal, @RequestBody FavoriteDTO favoriteDTO) {
+        bandDao.setFavorite(favoriteDTO.getBandId(), principal);
+    }
+
 }

@@ -29,6 +29,15 @@
       >
       </band-card>
     </div>
+    <p>
+      ______________________________________________________________________________________
+    </p>
+    <div>
+      <band-card
+        v-for="favorite in this.$store.state.myBands"
+        v-bind:key="favorite.bandId"
+      ></band-card>
+    </div>
   </div>
 </template>
 

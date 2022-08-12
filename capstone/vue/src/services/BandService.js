@@ -14,7 +14,10 @@ export default {
     },
     createBand(band) {
         return axios.post(`/bands/register`, band)
-    }
+    },
+    makeFavorite(favorite) {
+        return axios.put(`/bands/favorites`, favorite)
+    },
 
 
 }

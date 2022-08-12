@@ -105,6 +105,12 @@ public class JdbcBandDao implements BandDao {
         }
 
     }
+    @Override
+    public void setFavorite(int bandId, Principal principal) {
+        String sql ="INSERT INTO user_favorite_bands (user_id, band_id) VALUES (?,?)";
+        User user = jdbcUserDao.findByUsername(principal.getName());
+        jdbcTemplate.update(sql, user.getId(), bandId);
+    }
 
 
     private Band mapRowToBand(SqlRowSet rs) {

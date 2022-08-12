@@ -20,4 +20,6 @@ public interface BandDao {
     boolean createBand(String bandName, String description, String imageLink, Integer[] genreIds, Principal principal);
 
     public void setGenres(List<Integer> genreIds, int bandId );
+
+    public void setFavorite(int bandId, Principal principal);
 }
