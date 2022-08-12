@@ -12,7 +12,7 @@
       <div class="alert alert-danger" role="alert" v-if="registrationErrors">
         {{ registrationErrorMsg }}
       </div>
-      <ul>
+      <ul class="registerUserForm">
         <li>
           <label for="username" class="sr-only"></label>
           <input
@@ -140,7 +140,7 @@ body.register {
   flex-direction: column;
   align-items: center;
 }
-ul {
+.registerUserForm {
   display: flex;
   flex-direction: column;
   align-items: center;

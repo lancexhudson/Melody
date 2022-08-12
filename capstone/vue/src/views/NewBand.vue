@@ -1,6 +1,21 @@
 <template>
-  <div class="form">
-    <new-band-form></new-band-form>
+  <div>
+    <div class="form">
+      <new-band-form></new-band-form>
+      <router-link v-bind:to="{ name: 'home' }" class="logoContainer">
+        <img
+          src="..\assets\LOGO TRANSPARENCY white.png"
+          alt="Melody Logo"
+          class="homelogo"
+        />
+      </router-link>
+      <!-- <router-link
+        class="logOut"
+        v-bind:to="{ name: 'logout' }"
+        v-if="$store.state.token != ''"
+        >Logout</router-link
+      > -->
+    </div>
   </div>
 </template>
 
@@ -15,7 +30,7 @@ export default {
 
 <style>
 .form {
-  margin: -30px;
+  /* margin: -30px; */
   display: flex;
   text-align: center;
   flex-direction: column;
