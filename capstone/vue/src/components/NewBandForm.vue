@@ -33,26 +33,6 @@
           >
             {{ genre.genreName }}
           </option>
-          <!-- <option value="Pop">Pop</option>
-          <option value="Rock">Rock</option>
-          <option value="HipHop">HipHop</option>
-          <option value="Classical">Classical</option>
-          <option value="RnB">{{ "R & B" }}</option>
-          <option value="Electronic">Electronic</option>
-          <option value="Country">Country</option>
-          <option value="Blues">Blues</option>
-          <option value="Jazz">Jazz</option>
-          <option value="Metal">Metal</option>
-          <option value="Reggae">Reggae</option>
-          <option value="Folk">Folk</option>
-          <option value="Latin">Latin</option>
-          <option value="A capella">A capella</option>
-          <option value="Funk">Funk</option>
-          <option value="Worship">Worship</option>
-          <option value="Instrumental">Instrumental</option>
-          <option value="Punk">Punk</option>
-          <option value="Singer/Songwriter">Singer/Songwriter</option>
-          <option value="World">World</option> -->
         </select>
       </li>
       <li>
