@@ -7,6 +7,7 @@
           type="text"
           placeholder="Band Name"
           v-model="newBand.bandName"
+          required
         />
       </li>
       <li>
@@ -15,6 +16,7 @@
           type="textarea"
           placeholder="Your Band's Description"
           v-model="newBand.description"
+          required
         >
         </textarea>
       </li>
@@ -24,6 +26,7 @@
           name="genre-selector"
           id="genre-select"
           v-model="newBand.genre"
+          required
           multiple
         >
           <option value="" disabled selected>Select Genre</option>
@@ -41,6 +44,7 @@
           class="image-link"
           placeholder="Image Link"
           v-model="newBand.imageLink"
+          required
         >
         </textarea>
       </li>
