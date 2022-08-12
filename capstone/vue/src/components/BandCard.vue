@@ -4,6 +4,14 @@
       <h2 class="band-name">{{ band.bandName }}</h2>
       <img class="cover" :src="band.imageLink" alt="band-image" />
     </router-link>
+    <!-- <div class="button-container" v-if="!enableFollow">
+      <button v-if="enableFollow" v-on:click.prevent="addToFollowList(band)">
+        Follow Band
+      </button>
+    </div> -->
+    <button type="submit" v-on:click.prevent="addToFollowList(band)">
+      Test Button
+    </button>
   </div>
 </template>
 
@@ -11,6 +19,17 @@
 export default {
   name: "band-card",
   props: ["band"],
+  band: Object,
+  enableFollow: {
+    type: Boolean,
+    default: false,
+  },
+  methods: {
+    addToFollowList(band) {
+      let followedBand = Object.assign(band);
+      this.$store.commit("FOLLOW_BAND", followedBand);
+    },
+  },
 };
 </script>
 

@@ -22,6 +22,7 @@ export default new Vuex.Store({
     token: currentToken || '',
     user: currentUser || {},
     bands: [],
+    myBands: [],
 
   },
   components: {
@@ -49,6 +50,9 @@ export default new Vuex.Store({
     },
     SAVE_BAND(band) {
       bandService.createBand(band);
+    },
+    FOLLOW_BAND(store, band) {
+      store.myBands.push(band);
     }
   }
 })
