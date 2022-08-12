@@ -3,19 +3,24 @@
     <div class="searchBands">
       <h1 v-if="isFilteredEmpty">NO MATCHING RESULTS</h1>
       <table id="tableBands">
-        <thead>
-          <tr>
-            <th>Band Name</th>
-          </tr>
-        </thead>
         <td>
-          <input type="text" id="bandNameFilter" v-model="filter.bandName" />
+          <input
+            class="searchbox"
+            type="text"
+            id="bandNameFilter"
+            v-model="filter.bandName"
+            placeholder="Search by Band Name"
+          />
         </td>
-        <tr>
-          <th>Genre</th>
-        </tr>
+
         <td>
-          <input type="text" id="genreFilter" v-model="filter.genreFilter" />
+          <input
+            class="searchbox"
+            type="text"
+            id="genreFilter"
+            v-model="filter.genreFilter"
+            placeholder="Search by Genre"
+          />
         </td>
       </table>
     </div>
@@ -102,15 +107,14 @@ export default {
   justify-content: space-evenly;
   flex-wrap: wrap;
 }
-#tableBands {
-  display: block;
 
-  align-items: center;
-}
 #tableBands {
   display: flex;
-  align-items: flex-start;
-
-  flex-direction: column;
+  justify-content: space-evenly;
+  margin-top: 55px;
+  margin-bottom: 55px;
+}
+.searchbox {
+  width: 240px;
 }
 </style>
