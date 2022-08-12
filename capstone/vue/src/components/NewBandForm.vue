@@ -19,9 +19,21 @@
         </textarea>
       </li>
       <li>
-        <select name="genre-selector" id="genre-select" v-model="newBand.genre">
+        <select
+          name="genre-selector"
+          id="genre-select"
+          v-model="newBand.genre"
+          multiple
+        >
           <option value="" disabled selected>Select Genre</option>
-          <option value="Pop">Pop</option>
+          <option
+            v-for="genre in this.$store.state.genres"
+            v-bind:key="genre.genreId"
+            :value="genre.genreId"
+          >
+            {{ genre.genreName }}
+          </option>
+          <!-- <option value="Pop">Pop</option>
           <option value="Rock">Rock</option>
           <option value="HipHop">HipHop</option>
           <option value="Classical">Classical</option>
@@ -40,7 +52,7 @@
           <option value="Instrumental">Instrumental</option>
           <option value="Punk">Punk</option>
           <option value="Singer/Songwriter">Singer/Songwriter</option>
-          <option value="World">World</option>
+          <option value="World">World</option> -->
         </select>
       </li>
       <li>
@@ -58,6 +70,8 @@
 
 <script>
 import bandService from "@/services/BandService.js";
+import genreService from "@/services/GenreService.js";
+
 export default {
   name: "band-form",
   data() {
@@ -65,7 +79,7 @@ export default {
       newBand: {
         bandName: "",
         description: "",
-        genre: "",
+        genre: [],
         imageLink: "",
       },
     };
@@ -80,10 +94,18 @@ export default {
       this.newBand = {
         bandName: "",
         description: "",
-        genre: "",
+        genre: [],
         imageLink: "",
       };
     },
+    listGenres() {
+      genreService.listGenres().then((response) => {
+        this.$store.commit("SET_GENRES", response.data);
+      });
+    },
+  },
+  created() {
+    this.listGenres();
   },
 };
 </script>
@@ -93,7 +115,9 @@ export default {
   font-size: 200px;
 } */
 .band-creation,
-.band-name-input {
+.band-name-input,
+option,
+button {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 </style>

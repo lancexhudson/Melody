@@ -12,14 +12,14 @@ public class Band {
     private String bandName;
     private String description;
     private String imageLink;
-    private String genre;
+    private Integer[] genre;
     @JsonIgnore
     private boolean activated;
 
     public Band() {
 
     }
-    public Band(int bandId, String bandName, String description, String imageLink, String genre, boolean activated) {
+    public Band(int bandId, String bandName, String description, String imageLink, Integer[] genre, boolean activated) {
         this.bandId = bandId;
         this.bandName = bandName;
         this.description = description;
@@ -62,11 +62,11 @@ public class Band {
         this.imageLink = imageLink;
     }
 
-    public String getGenre() {
+    public Integer[] getGenres() {
         return genre;
     }
 
-    public void setGenre(String genre) {
+    public void setGenres(Integer[] genre) {
         this.genre = genre;
     }
 

@@ -7,6 +7,15 @@ public class BandDto {
     private String description;
     private String imageLink;
     private boolean activated;
+    private Integer[] genre;
+
+    public Integer[] getGenre() {
+        return genre;
+    }
+
+    public void setGenre(Integer[] genre) {
+        this.genre = genre;
+    }
 
     public int getBandId() {
         return bandId;
