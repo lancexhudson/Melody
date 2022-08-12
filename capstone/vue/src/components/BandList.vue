@@ -29,9 +29,6 @@
       >
       </band-card>
     </div>
-    <p>
-      ______________________________________________________________________________________
-    </p>
     <div>
       <band-card
         v-for="favorite in this.$store.state.myBands"
@@ -106,7 +103,9 @@ export default {
   flex-wrap: wrap;
 }
 #tableBands {
-  align-self: flex-end;
+  display: block;
+
+  align-items: center;
 }
 #tableBands {
   display: flex;

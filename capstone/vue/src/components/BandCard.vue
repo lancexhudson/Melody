@@ -9,8 +9,12 @@
         Follow Band
       </button>
     </div> -->
-    <button type="submit" v-on:click.prevent="toggleFavorite(band.bandId)">
-      Test Button
+    <button
+      type="submit"
+      class="submit-button"
+      v-on:click.prevent="toggleFavorite(band.bandId)"
+    >
+      Favorite?
     </button>
   </div>
 </template>
@@ -36,15 +40,31 @@ export default {
 
 <style>
 .card {
-  border: solid rgb(255, 255, 255) 2px;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  border: solid rgb(255, 255, 255) 1px;
   border-radius: 0.5rem;
   background-color: rgba(53, 53, 53, 0.7);
   padding: 4px;
   width: 300px;
+  height: 300px;
+}
+a:link {
+  text-decoration: none;
+}
+.band-name {
+  color: white;
+  text-decoration: none;
 }
 .cover {
   border-radius: 0.5rem;
-  max-width: 290px;
-  max-height: 100px;
+  max-width: 250px;
+  max-height: 250px;
+}
+.submit-button {
+  width: 80px;
+  font-weight: bold;
 }
 </style>
