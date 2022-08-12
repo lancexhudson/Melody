@@ -20,7 +20,7 @@
       >
         Thank you for registering, please sign in.
       </div>
-      <ul>
+      <ul class="newUserForm">
         <li>
           <label for="username" class="sr-only"></label>
           <input
@@ -120,7 +120,7 @@ body.login {
   justify-content: center;
 }
 
-ul {
+.newUserForm {
   display: flex;
   flex-direction: column;
   align-items: center;

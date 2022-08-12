@@ -9,12 +9,6 @@
           class="homelogo"
         />
       </router-link>
-      <!-- <router-link
-        class="logOut"
-        v-bind:to="{ name: 'logout' }"
-        v-if="$store.state.token != ''"
-        >Logout</router-link
-      > -->
     </div>
   </div>
 </template>
@@ -30,7 +24,6 @@ export default {
 
 <style>
 .form {
-  /* margin: -30px; */
   display: flex;
   text-align: center;
   flex-direction: column;

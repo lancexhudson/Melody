@@ -20,6 +20,7 @@
       </li>
       <li>
         <select
+          class="genre-selector"
           name="genre-selector"
           id="genre-select"
           v-model="newBand.genre"
@@ -63,7 +64,7 @@
         >
         </textarea>
       </li>
-      <button class="button">Save Band</button>
+      <button class="saveBandButton">Save Band</button>
     </ul>
   </form>
 </template>
@@ -119,5 +120,24 @@ export default {
 option,
 button {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+.band-creation {
+  display: flex;
+  width: 20%;
+  flex-direction: column;
+  align-items: center;
+  list-style: none;
+}
+.band-name-input {
+  width: 20rem;
+}
+.band-description-input {
+  width: 20rem;
+}
+.genre-selector {
+  width: 20rem;
+}
+.image-link {
+  width: 20rem;
 }
 </style>
