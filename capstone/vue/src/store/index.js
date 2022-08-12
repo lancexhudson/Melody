@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
 import bandService from '@/services/BandService.js'
+import genreService from '@/services/GenreService.js'
 
 Vue.use(Vuex)
 
@@ -22,10 +23,11 @@ export default new Vuex.Store({
     token: currentToken || '',
     user: currentUser || {},
     bands: [],
+    genres: [],
 
   },
   components: {
-    bandService,
+    bandService, genreService
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -49,6 +51,9 @@ export default new Vuex.Store({
     },
     SAVE_BAND(band) {
       bandService.createBand(band);
-    }
+    },
+    SET_GENRES(state, data) {
+      state.genres = data;
+    },
   }
 })
