@@ -2,7 +2,7 @@
 
 
 <template>
-  <div>
+  <div class="wholePage">
     <router-link v-bind:to="{ name: 'home' }" class="logoContainer">
       <img
         src="..\assets\LOGO TRANSPARENCY white.png"
@@ -32,6 +32,10 @@ export default {
 </script>
 
 <style>
+.wholePage {
+  display: grid;
+}
+
 body.home {
   display: flex;
   text-align: center;
