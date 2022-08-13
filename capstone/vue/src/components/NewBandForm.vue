@@ -107,9 +107,11 @@ button {
 }
 .band-creation {
   display: flex;
-  width: 20%;
   flex-direction: column;
-  align-items: center;
+  justify-items: center;
+
+  width: 20%;
+
   list-style: none;
 }
 .band-name-input {
@@ -123,5 +125,9 @@ button {
 }
 .image-link {
   width: 20rem;
+}
+.saveBandButton {
+  width: 20rem;
+  margin-left: 29px;
 }
 </style>
