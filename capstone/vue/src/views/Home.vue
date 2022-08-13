@@ -32,10 +32,19 @@ export default {
 </script>
 
 <style>
-.wholePage {
-  display: grid;
+/* .logoContainer {
+  display: flex;
+  justify-content: flex-end;
+  align-self: flex-start;
+  margin-right: auto;
+} */
+.homelogo {
+  align-self: auto;
+  /* justify-items: flex-start; */
+  max-width: 20%;
+  margin: 0%;
+  flex-shrink: 1;
 }
-
 body.home {
   display: flex;
   text-align: center;
@@ -52,18 +61,7 @@ body.home {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   height: 100vh;
 }
-.logoContainer {
-  display: flex;
-  align-self: flex-start;
-  margin-right: 1600px;
-}
-.homelogo {
-  align-self: flex-start;
-  justify-items: flex-start;
-  max-width: 300px;
-  margin: 8px;
-  flex-shrink: 1;
-}
+
 .addBand {
   color: rgb(250, 250, 250);
   font-size: 14pt;

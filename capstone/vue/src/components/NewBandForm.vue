@@ -105,6 +105,10 @@ option,
 button {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
+.form {
+  justify-content: center;
+  align-items: center;
+}
 .band-creation {
   display: flex;
   flex-direction: column;
@@ -128,6 +132,5 @@ button {
 }
 .saveBandButton {
   width: 20rem;
-  margin-left: 29px;
 }
 </style>
