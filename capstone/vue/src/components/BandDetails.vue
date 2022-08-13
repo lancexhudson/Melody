@@ -2,7 +2,7 @@
   <div>
     <h1 class="band-name">{{ band.bandName }}</h1>
     <img :src="band.imageLink" class="hero-picture" />
-    <h4 class="genre">Genre: {{ band.genre }}</h4>
+    <!-- <h4 class="genre">Genre: {{ band.genre }}</h4> -->
     <p class="description">{{ band.description }}</p>
   </div>
 </template>
