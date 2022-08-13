@@ -41,7 +41,7 @@ public class JdbcBandDao implements BandDao {
     @Override
     public List<Band> listBandsByGenre(String genreName) {
         List<Band> bandsOfGenre = new ArrayList<>();
-        String sql = "SELECT b.band_id, b.band_name, b.description " +
+        String sql = "SELECT b.band_id, b.band_name, b.description, b.image_link " +
                 "FROM band AS b JOIN band_genre AS bg ON b.band_id = bg.band_id " +
                 "JOIN genre AS g ON bg.genre_id = g.genre_id " +
                 "WHERE g.genre_name = ?;";

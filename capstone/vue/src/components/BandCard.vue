@@ -23,6 +23,13 @@
 import bandService from "@/services/BandService.js";
 export default {
   name: "band-card",
+  data() {
+    return {
+      favorite: {
+        bandId: 0,
+      },
+    };
+  },
   props: ["band"],
   band: Object,
   enableFollow: {
@@ -30,9 +37,10 @@ export default {
     default: false,
   },
   methods: {
-    toggleFavorite(bandId) {
-      this.$store.commit("FOLLOW_BAND", bandId);
-      bandService.makeFavorite(this.$store.state.favorite);
+    toggleFavorite(Id) {
+      this.favorite.bandId = Id;
+      bandService.makeFavorite(this.favorite);
+      this.favorite.bandId = 0;
     },
   },
 };

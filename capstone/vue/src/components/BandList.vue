@@ -59,6 +59,7 @@ export default {
       },
       isEmpty: this.isFilteredEmpty,
       testArray: [],
+      bandByGenreArray: [],
     };
   },
   computed: {
@@ -92,6 +93,11 @@ export default {
     listBands() {
       bandService.listBands().then((response) => {
         this.$store.commit("SET_BANDS", response.data);
+      });
+    },
+    updateGenreArray() {
+      bandService.getBandsByGenre(this.filter.genreFilter).then((response) => {
+        this.bandByGenreArray = response.data;
       });
     },
   },
