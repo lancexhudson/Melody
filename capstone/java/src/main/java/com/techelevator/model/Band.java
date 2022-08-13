@@ -3,6 +3,7 @@ package com.techelevator.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
@@ -12,14 +13,14 @@ public class Band {
     private String bandName;
     private String description;
     private String imageLink;
-    private Integer[] genre;
+    private List<Genre> genre;
     @JsonIgnore
     private boolean activated;
 
     public Band() {
 
     }
-    public Band(int bandId, String bandName, String description, String imageLink, Integer[] genre, boolean activated) {
+    public Band(int bandId, String bandName, String description, String imageLink, List<Genre> genre, boolean activated) {
         this.bandId = bandId;
         this.bandName = bandName;
         this.description = description;
@@ -62,11 +63,11 @@ public class Band {
         this.imageLink = imageLink;
     }
 
-    public Integer[] getGenres() {
+    public List<Genre> getGenres() {
         return genre;
     }
 
-    public void setGenres(Integer[] genre) {
+    public void setGenres(List<Genre> genre) {
         this.genre = genre;
     }
 

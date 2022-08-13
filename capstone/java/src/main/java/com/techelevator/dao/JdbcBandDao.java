@@ -1,9 +1,6 @@
 package com.techelevator.dao;
 
-import com.techelevator.model.Band;
-import com.techelevator.model.BandNotFoundException;
-import com.techelevator.model.GenreDTO;
-import com.techelevator.model.User;
+import com.techelevator.model.*;
 import org.springframework.data.relational.core.sql.In;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
@@ -18,11 +15,11 @@ import java.util.List;
 public class JdbcBandDao implements BandDao {
     private final JdbcTemplate jdbcTemplate;
     private final JdbcUserDao jdbcUserDao;
-    public JdbcBandDao(JdbcTemplate jdbcTemplate, JdbcUserDao jdbcUserDao){
+
+    public JdbcBandDao(JdbcTemplate jdbcTemplate, JdbcUserDao jdbcUserDao) {
         this.jdbcTemplate = jdbcTemplate;
         this.jdbcUserDao = jdbcUserDao;
     }
-
 
 
     @Override
@@ -30,11 +27,32 @@ public class JdbcBandDao implements BandDao {
         List<Band> allBands = new ArrayList<>();
         String sql = "SELECT band_id, band_name, description, image_link FROM band ORDER BY band_name";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
-            while (results.next()) {
-                Band band = mapRowToBand(results);
-                allBands.add(band);
+
+        String sql2 = "SELECT genre_name, bg.genre_id " +
+                " FROM genre AS g " +
+                " JOIN band_genre as bg ON g.genre_id = bg.genre_id " +
+                " JOIN band as b ON b.band_id = bg.band_id " +
+                " WHERE b.band_id = ?";
+        int theBandId = 0;
+
+        while (results.next()) {
+            List<Genre> genres = new ArrayList<>();
+            Band band = mapRowToBand(results);
+            theBandId = results.getInt("band_id");
+
+
+            SqlRowSet results2 = jdbcTemplate.queryForRowSet(sql2, theBandId);
+            while (results2.next()) {
+
+                Genre genre = new Genre();
+                genre.setGenreId(results2.getInt("genre_id"));
+                genre.setGenreName(results2.getString("genre_name"));
+                genres.add(genre);
             }
-            return allBands;
+            band.setGenres(genres);
+            allBands.add(band);
+        }
+        return allBands;
 
     }
 
@@ -56,13 +74,13 @@ public class JdbcBandDao implements BandDao {
     @Override
     public Band getBandByName(String bandName) throws BandNotFoundException {
         String sql = "SELECT band_id, band_name, description FROM band WHERE band_name = ?;";
-            SqlRowSet results = jdbcTemplate.queryForRowSet(sql, bandName);
-            Band theBand = new Band();
-            if (results.next()) {
-                theBand = mapRowToBand(results);
-                return theBand;
-            }
-            throw new BandNotFoundException();
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, bandName);
+        Band theBand = new Band();
+        if (results.next()) {
+            theBand = mapRowToBand(results);
+            return theBand;
+        }
+        throw new BandNotFoundException();
     }
 
     @Override
@@ -78,7 +96,7 @@ public class JdbcBandDao implements BandDao {
     }
 
     @Override
-    public boolean createBand(String bandName, String description, String imageLink, Integer[] genreId, Principal principal){
+    public boolean createBand(String bandName, String description, String imageLink, Integer[] genreId, Principal principal) {
         Band newBand = new Band();
         newBand.setBandName(bandName);
         newBand.setDescription(description);
@@ -105,9 +123,10 @@ public class JdbcBandDao implements BandDao {
         }
 
     }
+
     @Override
     public void setFavorite(int bandId, Principal principal) {
-        String sql ="INSERT INTO user_favorite_bands (user_id, band_id) VALUES (?,?)";
+        String sql = "INSERT INTO user_favorite_bands (user_id, band_id) VALUES (?,?)";
         User user = jdbcUserDao.findByUsername(principal.getName());
         jdbcTemplate.update(sql, user.getId(), bandId);
     }

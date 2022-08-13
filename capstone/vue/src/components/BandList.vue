@@ -73,11 +73,12 @@ export default {
         );
       }
       if (this.filter.genreFilter != "") {
-        filteredBands = filteredBands.filter((band) =>
-          band.genre
-            .toLowerCase()
-            .includes(this.filter.genreFilter.toLowerCase())
-        );
+        this.updateGenreArray();
+        this.bandByGenreArray.array.forEach((element) => {
+          filteredBands = filteredBands.filter((band) => {
+            band === element;
+          });
+        });
       }
       return filteredBands;
     },
