@@ -1,9 +1,15 @@
+
 <template>
-  <div>
+  <div class="band-home">
     <h1 class="band-name">{{ band.bandName }}</h1>
     <img :src="band.imageLink" class="hero-picture" />
-    <!-- <h4 class="genre">Genre: {{ band.genre }}</h4> -->
-    <p class="description">{{ band.description }}</p>
+    <p class="description">
+      <span style="font-style: italic">About the Band:: </span>
+      {{ band.description }}
+    </p>
+    <p class="genre">
+      <span style="font-style: italic">Genre(s):: </span> {{ band.genre }}
+    </p>
   </div>
 </template>
 
@@ -33,8 +39,33 @@ body.bandDetails {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   height: 100vh;
 }
+
+.band-home {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  border: solid rgb(255, 255, 255) 1px;
+  border-radius: 0.5rem;
+  padding: 50px;
+  width: 100%;
+  max-width: 700px;
+  height: auto;
+}
+
 .hero-picture {
-  max-height: 500px;
-  max-width: 500px;
+  max-height: 600px;
+  max-width: 600px;
+  min-width: 600px;
+  max-width: 600px;
+}
+
+.description {
+  inline-size: 600px;
+}
+
+.genre {
+  /* display: inline-flex; */
+  inline-size: 600px;
 }
 </style>

@@ -8,6 +8,8 @@
           class="homelogo"
         />
       </router-link>
+      <br />
+      <br />
       <band-details v-bind:band="band"></band-details>
     </div>
   </div>
@@ -40,5 +42,5 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style>
 </style>
