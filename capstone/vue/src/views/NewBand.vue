@@ -1,16 +1,16 @@
 <template>
   <div>
+    <div class="melodyLogo">
+      <router-link v-bind:to="{ name: 'home' }">
+        <img
+          src="..\assets\LOGO TRANSPARENCY white.png"
+          alt="Melody Logo"
+          class="homelogo"
+        />
+      </router-link>
+    </div>
     <div class="form">
       <new-band-form></new-band-form>
-      <div class="melodyLogo">
-        <router-link v-bind:to="{ name: 'home' }">
-          <img
-            src="..\assets\LOGO TRANSPARENCY white.png"
-            alt="Melody Logo"
-            class="homelogo"
-          />
-        </router-link>
-      </div>
     </div>
   </div>
 </template>

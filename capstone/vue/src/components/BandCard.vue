@@ -54,10 +54,10 @@ export default {
   justify-content: space-between;
   border: solid rgb(255, 255, 255) 1px;
   border-radius: 0.5rem;
-  background-color: rgba(53, 53, 53, 0.7);
   padding: 4px;
-  width: 300px;
-  height: 300px;
+  width: 100%;
+  max-width: 250px;
+  height: auto;
 }
 a:link {
   text-decoration: none;
@@ -68,7 +68,9 @@ a:link {
 }
 .cover {
   border-radius: 0.5rem;
+  width: 100%;
   max-width: 250px;
+  height: auto;
   max-height: 250px;
 }
 .submit-button {
