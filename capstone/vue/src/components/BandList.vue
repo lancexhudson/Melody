@@ -74,9 +74,11 @@ export default {
       }
       if (this.filter.genreFilter != "") {
         filteredBands = filteredBands.filter((band) =>
-          band.genres[0].genreName
-            .toLowerCase()
-            .includes(this.filter.genreFilter.toLowerCase())
+          band.genres.some((genre) =>
+            genre.genreName
+              .toLowerCase()
+              .includes(this.filter.genreFilter.toLowerCase())
+          )
         );
       }
       return filteredBands;
