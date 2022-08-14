@@ -126,6 +126,7 @@ button {
   border: 0;
 }
 .band-description-input {
+  height: 50px;
   width: 330px;
   padding: 0;
   border: 3px;
