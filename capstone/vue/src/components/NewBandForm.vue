@@ -1,26 +1,26 @@
 <template>
   <form class="new-band-form" v-on:submit.prevent="saveBand">
     <ul class="band-creation">
-      <li>
+      <li class="form-row">
         <input
           class="band-name-input"
           type="text"
-          placeholder="Band Name"
+          placeholder="  Band Name"
           v-model="newBand.bandName"
           required
         />
       </li>
-      <li>
+      <li class="form-row">
         <textarea
           class="band-description-input"
           type="textarea"
-          placeholder="Your Band's Description"
+          placeholder=" Your Band's Description"
           v-model="newBand.description"
           required
         >
         </textarea>
       </li>
-      <li>
+      <li class="form-row">
         <select
           class="genre-selector"
           name="genre-selector"
@@ -39,16 +39,19 @@
           </option>
         </select>
       </li>
-      <li>
+      <li class="form-row">
         <textarea
           class="image-link"
-          placeholder="Image Link"
+          placeholder=" Image Link"
           v-model="newBand.imageLink"
           required
         >
         </textarea>
       </li>
-      <button class="saveBandButton">Save Band</button>
+
+      <li class="form-row">
+        <button class="saveBandButton">Save Band</button>
+      </li>
     </ul>
   </form>
 </template>
@@ -112,25 +115,38 @@ button {
 .band-creation {
   display: flex;
   flex-direction: column;
-  justify-items: center;
-
-  width: 20%;
-
+  padding: 0;
   list-style: none;
 }
+
 .band-name-input {
-  width: 20rem;
+  width: 330px;
+  padding: 0;
+  margin: 0;
+  border: 0;
 }
 .band-description-input {
-  width: 20rem;
+  width: 330px;
+  padding: 0;
+  border: 3px;
+  margin: 0;
 }
 .genre-selector {
-  width: 20rem;
+  width: 330px;
+  padding: 0;
+  border: 3px;
+  margin: 0;
 }
 .image-link {
-  width: 20rem;
+  width: 330px;
+  padding: 0;
+  border: 3px;
+  margin: 0;
 }
 .saveBandButton {
-  width: 20rem;
+  width: 330px;
+  padding: 0;
+  border: 3px;
+  margin: 0;
 }
 </style>
