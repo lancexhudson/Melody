@@ -42,6 +42,19 @@ CONSTRAINT PK_band_user_band_id PRIMARY KEY (band_id),
 CONSTRAINT FK_band_id FOREIGN KEY (band_id) REFERENCES band(band_id),
 CONSTRAINT FK_user_id FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
+CREATE TABLE message (
+message_id serial,
+to_user int NOT NULL,
+from_band int NOT NULL,
+message varchar(144) NOT NULL,
+date_received timestamp NOT NULL,
+
+CONSTRAINT PK_message_id PRIMARY KEY (message_id),
+CONSTRAINT FK_to_user FOREIGN KEY (to_user) REFERENCES users(user_id),
+CONSTRAINT FK_from_band FOREIGN KEY (from_band) REFERENCES band(band_id)
+);
+
+);
 
 INSERT INTO genre (genre_name) 
 VALUES ('Pop'), ('Rock'), ('HipHop'), ('Classical'), ('R&B'),('Electronic'), ('Country'), 
