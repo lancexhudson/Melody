@@ -10,6 +10,7 @@
       </button>
     </div> -->
     <button
+      :disabled="!isActive"
       type="submit"
       class="submit-button"
       v-on:click.prevent="toggleFavorite(band.bandId)"
@@ -25,6 +26,7 @@ export default {
   name: "band-card",
   data() {
     return {
+      isActive: true,
       favorite: {
         bandId: 0,
       },
@@ -41,6 +43,7 @@ export default {
       this.favorite.bandId = Id;
       bandService.makeFavorite(this.favorite);
       this.favorite.bandId = 0;
+      this.isActive = false;
     },
   },
 };
