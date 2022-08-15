@@ -4,11 +4,14 @@
     <h1 class="band-name">{{ band.bandName }}</h1>
     <img :src="band.imageLink" class="hero-picture" />
     <p class="description">
-      <span style="font-style: italic">About the Band:: </span>
+      <span style="font-style: italic">About the Band: </span>
       {{ band.description }}
     </p>
+
+    <h4 class="genre-category">Genre:</h4>
     <p class="genre" v-for="genre in band.genres" v-bind:key="genre.genreId">
-      <span style="font-style: italic">Genre(s): </span>
+      <!-- <span style="font-style: italic">Genre(s): </span> -->
+
       {{ genre.genreName }}
     </p>
   </div>
@@ -26,8 +29,8 @@ export default {
 
   props: ["band"],
   computed: {
-    returnString(band) {
-      let genre = band.genres[0].genreName;
+    returnString() {
+      let genre = this.band.genres;
       return genre;
     },
   },
@@ -82,5 +85,10 @@ body.bandDetails {
 .genre {
   /* display: inline-flex; */
   inline-size: 600px;
+  margin: 0;
+}
+
+.genre-category {
+  font-style: italic;
 }
 </style>
