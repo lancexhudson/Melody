@@ -54,4 +54,8 @@ public class BandController {
         bandDao.setFavorite(favoriteDTO.getBandId(), principal);
     }
 
+    @RequestMapping (path = "/bands/favorites/{id}", method = RequestMethod.GET)
+    public List<Band> favoriteBandsByUser(@PathVariable("id") int userId, Principal principal){
+        return bandDao.favoriteBandsByUser(userId, principal);
+    }
 }

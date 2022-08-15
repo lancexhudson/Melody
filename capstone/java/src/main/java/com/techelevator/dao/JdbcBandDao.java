@@ -131,6 +131,22 @@ public class JdbcBandDao implements BandDao {
         jdbcTemplate.update(sql, user.getId(), bandId);
     }
 
+    @Override
+    public List<Band> favoriteBandsByUser(int userId, Principal principal){
+        String sql = "SELECT u.user_id, band.band_id, band_name, description, image_link FROM band " +
+                "JOIN user_favorite_bands AS ufb ON ufb.band_id = band.band_id " +
+                "JOIN users as u ON u.user_id = ufb.user_id " +
+                "WHERE u.user_id = ?;";
+        userId = jdbcUserDao.findIdByUsername(principal.getName());
+        SqlRowSet result = jdbcTemplate.queryForRowSet(sql, userId);
+        List<Band>favoriteBands = new ArrayList<>();
+        while (result.next()) {
+            Band band = mapRowToBand(result);
+            favoriteBands.add(band);
+        }
+        return favoriteBands;
+    }
+
 
     private Band mapRowToBand(SqlRowSet rs) {
         Band band = new Band();
