@@ -5,8 +5,15 @@
 </template>
 
 <script>
+import MessageService from "@/services/MessageServices.js";
+
 export default {
   name: "inbox-message",
+  computed: {
+    name() {
+      return MessageService;
+    },
+  },
 };
 </script>
 
