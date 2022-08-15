@@ -1,33 +1,30 @@
 <template>
   <div class="message-container">
-    <p>Hello World</p>
-    <p
-      class="messageBody"
+    <div
+      class="smallTextBox"
       v-for="message in this.$store.state.myMessages"
       v-bind:key="message.messageId"
     >
-      {{ message.message }}
-    </p>
+      <p class="fromBand">from: {{ message.fromBand }}</p>
+      <p class="messageBody">
+        {{ message.message }}
+      </p>
+    </div>
   </div>
 </template>
 
 <script>
 import MessageService from "@/services/MessageService.js";
-
 export default {
   name: "inbox-message",
 
-  computed: {
-    name() {
-      return MessageService;
-    },
-  },
-
   methods: {
     listMyMessages() {
-      MessageService.getMessagesForUser(3).then((response) => {
-        this.$store.commit("SET_MESSAGES", response.data);
-      });
+      MessageService.getMessagesForUser(this.$store.state.user.id).then(
+        (response) => {
+          this.$store.commit("SET_MESSAGES", response.data);
+        }
+      );
     },
   },
   created() {
@@ -36,5 +33,27 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style>
+.message-container {
+  border: cornflowerblue solid;
+  background-color: cornflowerblue;
+}
+
+.smallTextBox {
+  border: white solid;
+  border-radius: 2rem;
+  background-color: white;
+  margin: 1rem;
+  margin-right: 20rem;
+  margin-left: 20rem;
+}
+
+.messageBody {
+  color: black;
+  font-size: 15pt;
+}
+.fromBand {
+  color: black;
+  font-size: 15pt;
+}
 </style>

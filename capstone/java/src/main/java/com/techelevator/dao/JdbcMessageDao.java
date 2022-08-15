@@ -50,7 +50,7 @@ public class JdbcMessageDao implements MessageDao  {
 
     public List<Message> listAllMessagesByUserId(int userId) {
         List<Message> messageList = new ArrayList<>();
-        String sql = "SELECT user_id, band_id, message, date, message_id FROM messages WHERE user_id = ? ORDER BY message_id desc;";
+        String sql = "SELECT m.user_id, m.band_id, m.message, m.date, m.message_id, b.band_name FROM messages AS m JOIN band AS b ON b.band_id = m.band_id WHERE m.user_id = ?;";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userId);
         while (results.next()) {
             Message message = mapRowToMessage(results);
@@ -84,6 +84,7 @@ public class JdbcMessageDao implements MessageDao  {
         messageDetails.setMessage(rs.getString("message"));
         messageDetails.setDate(rs.getString("date"));
         messageDetails.setMessageId(rs.getInt("message_id"));
+        messageDetails.setFromBand(rs.getString("band_name"));
         return messageDetails;
     }
 

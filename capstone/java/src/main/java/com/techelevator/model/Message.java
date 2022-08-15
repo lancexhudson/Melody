@@ -9,18 +9,20 @@ public class Message {
     public int bandId;
     public String message;
     public String date;
+    public String fromBand;
     public int messageId;
 
 public Message() {
 
 }
 
-    public Message(int userId, int bandId, String message, String date, int messageId) {
+    public Message(int userId, int bandId, String message, String date, int messageId, String fromBand) {
         this.userId = userId;
         this.bandId = bandId;
         this.message = message;
         this.date = date;
         this.messageId = messageId;
+        this.fromBand = fromBand;
     }
 
 
@@ -62,5 +64,13 @@ public Message() {
 
     public void setMessageId(int messageId) {
         this.messageId = messageId;
+    }
+
+    public String getFromBand() {
+        return fromBand;
+    }
+
+    public void setFromBand(String fromBand) {
+        this.fromBand = fromBand;
     }
 }
