@@ -18,6 +18,8 @@ export default {
     makeFavorite(favorite) {
         return axios.put(`/bands/favorites`, favorite)
     },
-
+    favoriteBandsByUser(userId) {
+        return axios.get(`/bands/favorites/${userId}`)
+    }
 
 }
