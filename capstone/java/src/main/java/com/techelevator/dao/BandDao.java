@@ -21,6 +21,8 @@ public interface BandDao {
 
     public void setGenres(List<Integer> genreIds, int bandId );
 
+    void updateGenres(List<Integer> genreIds, int bandId);
+
     public void setFavorite(int bandId, Principal principal);
 
     List<Band> favoriteBandsByUser(int userId, Principal principal);

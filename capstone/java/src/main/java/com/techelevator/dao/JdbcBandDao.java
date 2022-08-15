@@ -1,7 +1,6 @@
 package com.techelevator.dao;
 
 import com.techelevator.model.*;
-import org.springframework.data.relational.core.sql.In;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
@@ -143,6 +142,19 @@ public class JdbcBandDao implements BandDao {
         String sql = "INSERT INTO band_genre (band_id, genre_id) VALUES (?,?)";
         for (int id : genreIds) {
             jdbcTemplate.update(sql, bandId, id);
+        }
+
+    }
+
+    @Override
+    public void updateGenres(List<Integer> genreIds, int bandId) {
+        String sql = "UPDATE band_genre SET (band_id, genre_id) VALUES (?,?)";
+        for (int id : genreIds) {
+            jdbcTemplate.update(sql, bandId, id);
+
+            // how do we do this?
+            // what happens if a band has multiple genres, but we want to update it to only one genre?
+            // how do the old genres get removed?
         }
 
     }
