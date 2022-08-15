@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface MessageDao {
 
-    boolean createMessage(int userId, int bandId, String message, LocalDateTime date, int messageId);
+    boolean createMessage(int userId, int bandId, String message);
 
     Message getMessageById(int messageId);
 

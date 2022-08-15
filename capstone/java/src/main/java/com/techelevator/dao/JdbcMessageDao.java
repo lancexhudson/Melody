@@ -22,55 +22,67 @@ public class JdbcMessageDao implements MessageDao  {
         this.jdbcUserDao = jdbcUserDao;
     }
 
-
-    public boolean createMessage(int userId, int bandId, String message, LocalDateTime date) {
+    @Override
+    public boolean createMessage(int userId, int bandId, String message) {
         Message messageDetails = new Message();
-//        messageDetails.setUserId(userId);
-//        messageDetails.setBandId(bandId);
-//        messageDetails.setMessage(message);
-//        messageDetails.setDate(date);
-//
-//        String sql = "insert into message (to_user, from_band, message, date_received)\n" +
-//                "values (?, ?, ?, ?) Returning messageId;";
-//        int messageId = jdbcTemplate.queryForObject(sql, int.class, userId, bandId, message, date);
-//        messageDetails.setMessageId(messageId);
-//
-//
-//
-return true;
-    }
+        messageDetails.setUserId(userId);
+        messageDetails.setBandId(bandId);
+        messageDetails.setMessage(message);
+        messageDetails.setDate(String.valueOf(LocalDateTime.now()));
 
-    @Override //delete this later. Here for compile.
-    public boolean createMessage(int userId, int bandId, String message, LocalDateTime date, int messageId) {
-        return false;
+        String sql = "INSERT INTO messages (user_id, band_id, message, date) " +
+                "VALUES (?, ?, ?, ?) RETURNING message_id;";
+        int messageId = jdbcTemplate.queryForObject(sql, int.class, userId, bandId, message, messageDetails.getDate());
+        messageDetails.setMessageId(messageId);
+
+        return true;
     }
 
     public Message getMessageById(int messageId) {
         Message message = new Message();
+        String sql = "SELECT user_id, band_id, message, date FROM messages WHERE message_id = ?";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, messageId);
+        if (results.next()) {
+            message = mapRowToMessage(results);
+        }
         return message;
     }
 
     public List<Message> listAllMessagesByUserId(int userId) {
         List<Message> messageList = new ArrayList<>();
+        String sql = "SELECT user_id, band_id, message, date FROM messages WHERE user_id = ?";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userId);
+        while (results.next()) {
+            Message message = mapRowToMessage(results);
+            messageList.add(message);
+        }
         return messageList;
     }
 
     public List<Message> ListAllMessagesByBandId(int bandId) {
         List<Message> messageList = new ArrayList<>();
+        String sql = "SELECT user_id, band_id, message, date FROM messages WHERE band_id = ?";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, bandId);
+        while (results.next()) {
+            Message message = mapRowToMessage(results);
+            messageList.add(message);
+        }
         return messageList;
     }
 
 
     public Boolean deleteMessageById(int messageId){
+        String sql = "DELETE from messages WHERE message_id = ?";
+        jdbcTemplate.update(sql, messageId);
         return true;
     }
 
     private Message mapRowToMessage(SqlRowSet rs) {
         Message messageDetails = new Message();
-        messageDetails.setUserId(rs.getInt("to_user"));
-        messageDetails.setBandId(rs.getInt("from_band"));
+        messageDetails.setUserId(rs.getInt("user_id"));
+        messageDetails.setBandId(rs.getInt("band_id"));
         messageDetails.setMessage(rs.getString("message"));
-        messageDetails.setDate(LocalDateTime.now());
+        messageDetails.setDate(rs.getString("date"));
         return messageDetails;
     }
 

@@ -1,28 +1,11 @@
 package com.techelevator.model;
 
-import java.time.LocalDateTime;
-
-
-public class Message {
-
-    public int userId;
-    public int bandId;
-    public String message;
-    public String date;
-    public int messageId;
-
-public Message() {
-
-}
-
-    public Message(int userId, int bandId, String message, String date, int messageId) {
-        this.userId = userId;
-        this.bandId = bandId;
-        this.message = message;
-        this.date = date;
-        this.messageId = messageId;
-    }
-
+public class MessageDTO {
+    private int userId;
+    private int bandId;
+    private String message;
+    private String date;
+    private int messageId;
 
     public int getUserId() {
         return userId;
