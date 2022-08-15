@@ -61,6 +61,7 @@ export default {
   width: 100%;
   max-width: 250px;
   height: auto;
+  background: rgba(0, 0, 0, 0.8);
 }
 a:link {
   text-decoration: none;

@@ -58,9 +58,11 @@ body.bandDetails {
   align-items: center;
   justify-content: space-between;
   border: solid rgb(255, 255, 255) 1px;
+  background: rgba(0, 0, 0, 0.8);
   border-radius: 0.5rem;
   padding: 50px;
   width: 100%;
+  margin-top: 100px;
   max-width: 700px;
   height: auto;
 }
