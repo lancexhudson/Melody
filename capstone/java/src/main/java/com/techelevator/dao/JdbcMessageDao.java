@@ -40,7 +40,7 @@ public class JdbcMessageDao implements MessageDao  {
 
     public Message getMessageById(int messageId) {
         Message message = new Message();
-        String sql = "SELECT user_id, band_id, message, date FROM messages WHERE message_id = ?";
+        String sql = "SELECT user_id, band_id, message, date, message_id FROM messages WHERE message_id = ?";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, messageId);
         if (results.next()) {
             message = mapRowToMessage(results);
@@ -50,7 +50,7 @@ public class JdbcMessageDao implements MessageDao  {
 
     public List<Message> listAllMessagesByUserId(int userId) {
         List<Message> messageList = new ArrayList<>();
-        String sql = "SELECT user_id, band_id, message, date FROM messages WHERE user_id = ?";
+        String sql = "SELECT user_id, band_id, message, date, message_id FROM messages WHERE user_id = ?";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userId);
         while (results.next()) {
             Message message = mapRowToMessage(results);
@@ -61,7 +61,7 @@ public class JdbcMessageDao implements MessageDao  {
 
     public List<Message> ListAllMessagesByBandId(int bandId) {
         List<Message> messageList = new ArrayList<>();
-        String sql = "SELECT user_id, band_id, message, date FROM messages WHERE band_id = ?";
+        String sql = "SELECT user_id, band_id, message, date, message_id FROM messages WHERE band_id = ?";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, bandId);
         while (results.next()) {
             Message message = mapRowToMessage(results);
@@ -83,6 +83,7 @@ public class JdbcMessageDao implements MessageDao  {
         messageDetails.setBandId(rs.getInt("band_id"));
         messageDetails.setMessage(rs.getString("message"));
         messageDetails.setDate(rs.getString("date"));
+        messageDetails.setMessageId(rs.getInt("message_id"));
         return messageDetails;
     }
 

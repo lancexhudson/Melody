@@ -20,5 +20,5 @@ export default {
     deleteMessage(messageId) {
         return axios.delete(`/message/delete/${messageId}`);
     },
-
+    
 }

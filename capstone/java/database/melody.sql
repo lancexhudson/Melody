@@ -52,7 +52,7 @@ CREATE TABLE messages (
 user_id int NOT NULL,
 band_id int NOT NULL,
 message varchar(1000),
-date varchar(11),
+date varchar(100),
 message_id int NOT NULL DEFAULT nextval('seq_message_id'),
 CONSTRAINT PK_message_id PRIMARY KEY (message_id),
 CONSTRAINT FK_user_id FOREIGN KEY (user_id) REFERENCES users(user_id),
