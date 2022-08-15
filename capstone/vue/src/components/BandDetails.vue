@@ -7,8 +7,9 @@
       <span style="font-style: italic">About the Band:: </span>
       {{ band.description }}
     </p>
-    <p class="genre">
-      <span style="font-style: italic">Genre(s):: </span> {{ band.genre }}
+    <p class="genre" v-for="genre in band.genres" v-bind:key="genre.genreId">
+      <span style="font-style: italic">Genre(s): </span>
+      {{ genre.genreName }}
     </p>
   </div>
 </template>
@@ -17,8 +18,19 @@
 // import bandService from "@/services/BandService.js";
 export default {
   name: "band-details",
+  data() {
+    return {
+      genreWord: this.returnString(this.band),
+    };
+  },
 
   props: ["band"],
+  computed: {
+    returnString(band) {
+      let genre = band.genres[0].genreName;
+      return genre;
+    },
+  },
 };
 </script>
 
