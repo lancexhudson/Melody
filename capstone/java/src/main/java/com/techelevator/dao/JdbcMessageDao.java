@@ -50,7 +50,7 @@ public class JdbcMessageDao implements MessageDao  {
 
     public List<Message> listAllMessagesByUserId(int userId) {
         List<Message> messageList = new ArrayList<>();
-        String sql = "SELECT user_id, band_id, message, date, message_id FROM messages WHERE user_id = ?";
+        String sql = "SELECT user_id, band_id, message, date, message_id FROM messages WHERE user_id = ? ORDER BY message_id desc;";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userId);
         while (results.next()) {
             Message message = mapRowToMessage(results);

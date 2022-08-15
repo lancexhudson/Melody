@@ -24,6 +24,7 @@ export default new Vuex.Store({
     user: currentUser || {},
     bands: [],
     genres: [],
+    myMessages: [],
 
   },
   components: {
@@ -55,5 +56,8 @@ export default new Vuex.Store({
     SET_GENRES(state, data) {
       state.genres = data;
     },
+    SET_MESSAGES(state, data) {
+      state.myMessages = data;
+    }
   }
 })

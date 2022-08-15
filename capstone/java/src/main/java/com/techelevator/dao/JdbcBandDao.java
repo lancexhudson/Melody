@@ -160,11 +160,36 @@ public class JdbcBandDao implements BandDao {
                 "JOIN user_favorite_bands AS ufb ON ufb.band_id = band.band_id " +
                 "JOIN users as u ON u.user_id = ufb.user_id " +
                 "WHERE u.user_id = ?;";
+
         userId = jdbcUserDao.findIdByUsername(principal.getName());
         SqlRowSet result = jdbcTemplate.queryForRowSet(sql, userId);
+
+        String sql2 = "SELECT genre_name, bg.genre_id " +
+                " FROM genre AS g " +
+                " JOIN band_genre as bg ON g.genre_id = bg.genre_id " +
+                " JOIN band as b ON b.band_id = bg.band_id " +
+                " WHERE b.band_id = ?";
+        int theBandId = 0;
+
         List<Band>favoriteBands = new ArrayList<>();
         while (result.next()) {
+
+            List<Genre> genres = new ArrayList<>();
             Band band = mapRowToBand(result);
+            theBandId = result.getInt("band_id");
+//            theBandId = results.getInt("band.band_id");
+
+            SqlRowSet results2 = jdbcTemplate.queryForRowSet(sql2, theBandId);
+            while (results2.next()) {
+
+                Genre genre = new Genre();
+                genre.setGenreId(results2.getInt("genre_id"));
+                genre.setGenreName(results2.getString("genre_name"));
+                genres.add(genre);
+
+            }
+
+            band.setGenres(genres);
             favoriteBands.add(band);
         }
         return favoriteBands;

@@ -7,6 +7,7 @@ import Register from '../views/Register.vue'
 import store from '../store/index'
 import NewBand from '../views/NewBand'
 import BandPage from '../views/BandPage'
+import MessageInbox from '../views/MessageInbox'
 
 Vue.use(Router)
 
@@ -64,6 +65,11 @@ const router = new Router({
       path: '/bands/id/:bandId',
       name: 'bandDetails',
       component: BandPage,
+    },
+    {
+      path: '/inbox',
+      name: 'inbox',
+      component: MessageInbox,
     },
   ]
 })

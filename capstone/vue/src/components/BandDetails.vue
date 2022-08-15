@@ -70,6 +70,7 @@ body.bandDetails {
   max-width: 600px;
   min-width: 600px;
   max-width: 600px;
+  border-radius: 1rem;
 }
 
 .description {

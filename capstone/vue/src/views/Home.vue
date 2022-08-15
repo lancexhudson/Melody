@@ -10,6 +10,9 @@
         class="homelogo"
       />
     </router-link>
+    <div class="inboxContainer">
+      <router-link class="inbox" :to="{ name: 'inbox' }">My Inbox</router-link>
+    </div>
     <div class="home">
       <router-link class="addBand" :to="{ name: 'addBand' }"
         >Add new Band</router-link
