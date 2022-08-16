@@ -42,6 +42,12 @@ public class BandController {
         return bandDao.getBandById(bandId);
     }
 
+    @ResponseStatus(HttpStatus.OK)
+    @RequestMapping(path = "/bands/update/{id}", method = RequestMethod.PUT)
+    public void updateBand (@PathVariable("id") int bandId, @RequestBody BandDto bandToUpdate){
+        bandDao.updateBand(bandToUpdate.getBandName(), bandToUpdate.getDescription(), bandToUpdate.getImageLink(), bandToUpdate.getGenre(), bandId);
+    }
+
     @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping (path = "/bands/register", method = RequestMethod.POST)
     public void createBand (Principal principal, @Valid @RequestBody BandDto newBand){

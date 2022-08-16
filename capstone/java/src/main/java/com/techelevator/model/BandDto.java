@@ -1,13 +1,16 @@
 package com.techelevator.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 public class BandDto {
 
     private int bandId;
     private String bandName;
     private String description;
     private String imageLink;
-    private boolean activated;
     private Integer[] genre;
+    @JsonIgnore
+    private boolean activated;
 
     public Integer[] getGenre() {
         return genre;

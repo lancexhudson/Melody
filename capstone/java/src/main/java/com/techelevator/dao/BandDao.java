@@ -19,7 +19,7 @@ public interface BandDao {
 
     boolean createBand(String bandName, String description, String imageLink, Integer[] genreIds, Principal principal);
 
-    void updateBand(String bandName, String description, String imageLink, Integer[] genreId, int bandId, Principal principal);
+    void updateBand(String bandName, String description, String imageLink, Integer[] genreId, int bandId);
 
     public void setGenres(List<Integer> genreIds, int bandId );
 

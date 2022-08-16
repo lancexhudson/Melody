@@ -138,7 +138,7 @@ public class JdbcBandDao implements BandDao {
     }
 
     @Override
-    public void updateBand(String bandName, String description, String imageLink, Integer[] genreId, int bandId, Principal principal) {
+    public void updateBand(String bandName, String description, String imageLink, Integer[] genreId, int bandId) {
         String sql = "UPDATE band SET band_name = ?, description = ?, image_link = ? WHERE band_id = ?";
         jdbcTemplate.update(sql, bandName, description, imageLink, bandId);
         List<Integer> genreIds = Arrays.asList(genreId);
