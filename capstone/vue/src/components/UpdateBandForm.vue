@@ -65,7 +65,7 @@ export default {
   data() {
     return {
       newBand: {
-        bandName: "",
+        bandName:"",
         description: "",
         genre: [],
         imageLink: "",

@@ -138,6 +138,14 @@ public class JdbcBandDao implements BandDao {
     }
 
     @Override
+    public void updateBand(String bandName, String description, String imageLink, Integer[] genreId, int bandId, Principal principal) {
+        String sql = "UPDATE band SET band_name = ?, description = ?, image_link = ? WHERE band_id = ?";
+        jdbcTemplate.update(sql, bandName, description, imageLink, bandId);
+        List<Integer> genreIds = Arrays.asList(genreId);
+        updateGenres(genreIds, bandId);
+    }
+
+    @Override
     public void setGenres(List<Integer> genreIds, int bandId) {
         String sql = "INSERT INTO band_genre (band_id, genre_id) VALUES (?,?)";
         for (int id : genreIds) {
@@ -148,13 +156,11 @@ public class JdbcBandDao implements BandDao {
 
     @Override
     public void updateGenres(List<Integer> genreIds, int bandId) {
-        String sql = "UPDATE band_genre SET (band_id, genre_id) VALUES (?,?)";
+        String sql = "DELETE FROM band_genre WHERE band_id = ?";
+        jdbcTemplate.update(sql, bandId);
+        String sql2 = "INSERT INTO band_genre (band_id, genre_id) VALUES (?,?)";
         for (int id : genreIds) {
-            jdbcTemplate.update(sql, bandId, id);
-
-            // how do we do this?
-            // what happens if a band has multiple genres, but we want to update it to only one genre?
-            // how do the old genres get removed?
+            jdbcTemplate.update(sql2, bandId, id);
         }
 
     }
