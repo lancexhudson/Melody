@@ -30,5 +30,6 @@ body {
 .logOut {
   font-size: 14pt;
   color: aliceblue;
+  font-weight: 900;
 }
 </style>
