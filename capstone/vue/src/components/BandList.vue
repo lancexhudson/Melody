@@ -114,6 +114,7 @@ export default {
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
+  margin-bottom: 100px;
 }
 
 #tableBands {

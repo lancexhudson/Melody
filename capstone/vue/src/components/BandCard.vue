@@ -9,6 +9,7 @@
         Follow Band
       </button>
     </div> -->
+    <!-- <br /> -->
     <button
       :disabled="!isActive"
       type="submit"
@@ -17,6 +18,7 @@
     >
       Favorite?
     </button>
+    <!-- <br /> -->
   </div>
 </template>
 
@@ -58,6 +60,7 @@ export default {
   border: solid rgb(255, 255, 255) 1px;
   border-radius: 0.5rem;
   padding: 4px;
+  margin-bottom: 20px;
   width: 100%;
   max-width: 250px;
   height: auto;
@@ -72,13 +75,15 @@ a:link {
 }
 .cover {
   border-radius: 0.5rem;
-  width: 100%;
+  width: 14rem;
   max-width: 250px;
-  height: auto;
+  height: 150px;
   max-height: 250px;
+  margin-bottom: 19px;
 }
 .submit-button {
   width: 80px;
   font-weight: bold;
+  margin-bottom: 19px;
 }
 </style>
