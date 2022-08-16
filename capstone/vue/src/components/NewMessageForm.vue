@@ -39,15 +39,16 @@ export default {
   },
   methods: {
     sendMessage() {
-      this.myFollowers.forEach((user) => {
-        this.newMessage.userId = user;
-        messageService.createMessage(this.newMessage).then((response) => {
-          if (response.status == 201) {
-            this.$router.back();
-          }
+      if (this.myFollowers.length != 0) {
+        this.myFollowers.forEach((user) => {
+          this.newMessage.userId = user;
+          messageService.createMessage(this.newMessage).then((response) => {
+            if (response.status == 201) {
+              this.$router.back();
+            }
+          });
         });
-      });
-
+      }
       this.newMessage = {
         userId: 0,
         bandId: this.$route.params.bandId,
