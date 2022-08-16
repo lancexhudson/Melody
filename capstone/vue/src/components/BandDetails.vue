@@ -27,25 +27,21 @@
         </tr>
       </thead>
       <tbody>
-        <tr class="input-for-upcoming-events-table">
-          <td>8.22.22</td>
-          <td>8:00 PM</td>
+        <tr
+          class="input-for-upcoming-events-table"
+          v-for="event in this.myEvents"
+          v-bind:key="event.eventId"
+        >
+          <td>{{ event.eventDate }}</td>
+          <td>{{ event.eventTime }}</td>
           <td>
             <a
               href="https://www.livenation.com/venue/KovZpZAEk6IA/bogart-s-events"
-              >Bogart's</a
+              >{{ event.venue }}</a
             >
           </td>
-          <td>Journey, 'Maiden, Foreigner</td>
+          <td>TBD</td>
         </tr>
-        <td>8.23.22</td>
-        <td>9:00 PM</td>
-        <td>
-          <a href="https://promowestlive.com/our-venues/newport-music-hall"
-            >Newport Music Hall</a
-          >
-        </td>
-        <td>Skid Row, Journey, Huey Lewis</td>
       </tbody>
     </table>
   </div>
@@ -53,24 +49,26 @@
 
 <script>
 // import bandService from "@/services/BandService.js";
+import eventService from "@/services/EventService.js";
 export default {
   name: "band-details",
   data() {
     return {
-      genreWord: this.returnString(this.band),
       myEvents: [],
+      myBandId: this.$route.params.bandId,
     };
   },
-
   props: ["band"],
-  computed: {
-    returnString() {
-      let genre = this.band.genres;
-      return genre;
+
+  methods: {
+    setEvents() {
+      eventService.listEventsForBand(this.myBandId).then((response) => {
+        this.myEvents = response.data;
+      });
     },
   },
-  methods: {
-    setEvents() {},
+  created() {
+    this.setEvents();
   },
 };
 </script>

@@ -1,10 +1,6 @@
 <template>
-  <div class="messageCard">
-    <form
-      v-if="isManager"
-      class="new-message-form"
-      v-on:submit.prevent="sendMessage"
-    >
+  <div class="messageCard" v-if="isManager">
+    <form class="new-message-form" v-on:submit.prevent="sendMessage">
       <div>
         <p class="sendMessage">MESSAGE YOUR FOLLOWERS</p>
       </div>
