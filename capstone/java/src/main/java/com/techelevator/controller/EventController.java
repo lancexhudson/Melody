@@ -29,5 +29,7 @@ public class EventController {
         eventDAO.createEvent(eventDTO.getEventDate(), eventDTO.getEventTime(), eventDTO.getVenue(), eventDTO.getBandId());
     }
 
+    @RequestMapping(path = )
+
 
 }
