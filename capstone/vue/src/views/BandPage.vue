@@ -10,6 +10,9 @@
       </router-link>
       <br />
       <br />
+      <div>
+        <new-message-form></new-message-form>
+      </div>
       <band-details v-bind:band="band"></band-details>
     </div>
   </div>
@@ -18,13 +21,14 @@
 <script>
 import bandDetails from "@/components/BandDetails";
 import bandService from "@/services/BandService";
+import newMessageForm from "@/components/NewMessageForm";
 export default {
   data() {
     return {
       band: {},
     };
   },
-  components: { bandDetails },
+  components: { bandDetails, newMessageForm },
   created() {
     const selectedBandId = this.$route.params.bandId;
     bandService.getBandById(selectedBandId).then((response) => {

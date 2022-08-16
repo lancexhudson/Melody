@@ -58,4 +58,9 @@ public class BandController {
     public List<Band> favoriteBandsByUser(@PathVariable("id") int userId, Principal principal){
         return bandDao.favoriteBandsByUser(userId, principal);
     }
+
+    @RequestMapping (path = "/bands/myFollowers/{id}", method = RequestMethod.GET)
+    public List<Integer> myFollowers(@PathVariable("id") int bandId) {
+        return bandDao.usersFollowingMyBand(bandId);
+    }
 }

@@ -27,4 +27,6 @@ public interface BandDao {
 
     List<Band> favoriteBandsByUser(int userId, Principal principal);
 
+    List<Integer> usersFollowingMyBand(int bandId);
+
 }

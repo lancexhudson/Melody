@@ -207,6 +207,17 @@ public class JdbcBandDao implements BandDao {
         return favoriteBands;
     }
 
+    @Override
+    public List<Integer> usersFollowingMyBand(int bandId) {
+        String sql = "SELECT user_id FROM user_favorite_bands WHERE band_id = ?;";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, bandId);
+        List<Integer> users = new ArrayList<>();
+        while (results.next()) {
+            users.add(results.getInt("user_id"));
+        }
+        return users;
+    }
+
 
     private Band mapRowToBand(SqlRowSet rs) {
         Band band = new Band();

@@ -88,7 +88,7 @@ export default {
     },
     listGenres() {
       genreService.listGenres().then((response) => {
-        this.$store.commit("SET_GENRES", response.data.concat);
+        this.$store.commit("SET_GENRES", response.data);
       });
     },
   },

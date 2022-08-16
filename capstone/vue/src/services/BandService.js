@@ -23,6 +23,9 @@ export default {
     },
     favoriteBandsByUser(userId) {
         return axios.get(`/bands/favorites/${userId}`)
+    },
+    usersFollowingMyBand(bandId) {
+        return axios.get(`/bands/myFollowers/${bandId}`);
     }
 
 }
