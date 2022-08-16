@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="add-your-band-form">
     <h4 class="addYourBand">ADD YOUR BAND</h4>
     <form class="new-band-form" v-on:submit.prevent="saveBand">
       <ul class="band-creation">
@@ -102,9 +102,24 @@ export default {
 </script>
 
 <style>
-/* .button {
-  font-size: 200px;
-} */
+.add-your-band-form {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  border: solid rgb(255, 255, 255) 1px;
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 0.5rem;
+  width: 700px;
+  margin-top: 150px;
+  margin-bottom: 230px;
+  max-width: 700px;
+}
+
+.new-band-form {
+  max-height: 360px;
+}
+
 .band-creation,
 .band-name-input,
 option,
@@ -114,6 +129,7 @@ button {
 .form {
   justify-content: center;
   align-items: center;
+  padding-top: 80px;
 }
 .band-creation {
   display: flex;
