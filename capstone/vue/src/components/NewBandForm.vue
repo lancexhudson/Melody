@@ -141,8 +141,9 @@ button {
   width: 330px;
   height: 30px;
   padding: 0;
-  margin: 0;
-  border-radius: 0.2rem;
+  margin: 0.5rem;
+  border: 0;
+  height: 25px;
 }
 
 .band-description-input {
@@ -150,14 +151,16 @@ button {
   width: 330px;
   padding: 0;
   border: 3px;
-  margin: 0px;
+  margin: 0.5rem;
+
   border-radius: 0.2rem;
 }
 .genre-selector {
   width: 330px;
   padding: 0;
   border: 3px;
-  margin: 0;
+  margin: 0.5rem;
+
   border-radius: 0.2rem;
 }
 
@@ -165,12 +168,15 @@ button {
   width: 330px;
   padding: 0;
   border: 3px;
-  margin: 0;
+  margin: 0.5rem;
+
   border-radius: 0.2rem;
 }
 .saveBandButton {
   width: auto;
   min-width: 300px;
+  height: auto;
+  min-height: 25px;
   padding: 0;
   border: 3px;
   margin: 0;
@@ -178,7 +184,7 @@ button {
 }
 .addYourBand {
   font-size: 2rem;
-  margin-bottom: 10px;
+  margin-bottom: 1rem;
 }
 
 .form-row {
