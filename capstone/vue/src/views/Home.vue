@@ -57,9 +57,10 @@ export default {
 } */
 .homelogo {
   align-self: auto;
-  /* justify-items: flex-start; */
+
   max-width: 20%;
   margin: 0%;
+
   flex-shrink: 1;
 }
 body.home {
