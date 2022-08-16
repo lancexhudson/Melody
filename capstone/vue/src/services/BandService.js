@@ -15,8 +15,8 @@ export default {
     createBand(band) {
         return axios.post(`/bands/register`, band)
     },
-    updateBand(band) {
-        return axios.put(`/bands/update`, band)
+    updateBand(bandId, band) {
+        return axios.put(`/bands/update/${bandId}`, band)
     },
     makeFavorite(favorite) {
         return axios.put(`/bands/favorites`, favorite)

@@ -1,5 +1,9 @@
 <template>
-  <form class="update-band-form" v-on:submit.prevent="updateBand">
+  <form
+    v-if="isMyManager"
+    class="update-band-form"
+    v-on:submit.prevent="updateBand"
+  >
     <ul class="band-updating">
       <li class="form-row">
         <input
@@ -59,24 +63,29 @@
 <script>
 import bandService from "@/services/BandService.js";
 import genreService from "@/services/GenreService.js";
-
+import authHelp from "@/services/AuthHelpService.js";
 export default {
   name: "band-form",
+
+  props: ["band"],
+
   data() {
     return {
       newBand: {
-        bandName:"",
+        bandName: "",
         description: "",
         genre: [],
         imageLink: "",
       },
+      theBandId: this.$route.params.bandId,
+      myManager: 0,
     };
   },
   methods: {
     updateBand() {
-      bandService.updateBand(this.newBand).then((response) => {
+      bandService.updateBand(this.theBandId, this.newBand).then((response) => {
         if (response.status == 200) {
-          this.$router.push({ name: "home" });
+          this.$router.go();
         }
       });
       this.newBand = {
@@ -86,14 +95,25 @@ export default {
         imageLink: "",
       };
     },
+    setMyManager() {
+      bandService.getMyManager(this.theBandId).then((response) => {
+        this.myManager = response.data;
+      });
+    },
     listGenres() {
       genreService.listGenres().then((response) => {
         this.$store.commit("SET_GENRES", response.data);
       });
     },
   },
+  computed: {
+    isMyManager() {
+      return authHelp.canModify(this.$store.state.user.id, this.myManager);
+    },
+  },
   created() {
     this.listGenres();
+    this.setMyManager();
   },
 };
 </script>

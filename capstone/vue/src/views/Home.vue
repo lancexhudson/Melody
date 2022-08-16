@@ -10,15 +10,29 @@
         class="homelogo"
       />
     </router-link>
-    <div class="inboxContainer">
-      <router-link class="inbox" :to="{ name: 'inbox' }">My Inbox</router-link>
+    <div class="homeNav">
+      <div class="inboxContainer">
+        <router-link class="inbox" :to="{ name: 'inbox' }">
+          <img
+            title="INBOX"
+            src="..\assets\inbox.png"
+            alt="mail"
+            class="inboxLogo"
+          />
+        </router-link>
+      </div>
+      <div class="addBandContainer">
+        <router-link class="addBand" :to="{ name: 'addBand' }"
+          ><img
+            title="Add a Band"
+            src="..\assets\add-user.png"
+            alt="addUser"
+            class="addUser"
+          />
+        </router-link>
+      </div>
     </div>
-    <div class="home">
-      <router-link class="addBand" :to="{ name: 'addBand' }"
-        >Add new Band</router-link
-      >
-      <band-list></band-list>
-    </div>
+    <band-list></band-list>
   </div>
 </template>
 
@@ -71,9 +85,20 @@ body.home {
   font-size: 14pt;
   font-weight: 900;
 }
-.inbox {
-  color: white;
-  font-size: 15pt;
-  font-weight: 900;
+.inboxLogo {
+  max-width: auto;
+  width: 50px;
+  margin: 2em;
+}
+.addUser {
+  max-width: auto;
+  width: 50px;
+  margin: 2em;
+}
+.homeNav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 </style>
