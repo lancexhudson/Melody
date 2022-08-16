@@ -11,12 +11,14 @@
       />
     </router-link>
     <div class="inboxContainer">
-      <router-link class="inbox" :to="{ name: 'inbox' }">My Inbox</router-link>
+      <router-link class="inbox" :to="{ name: 'inbox' }">
+        <img src="..\assets\inbox.png" alt="mail" class="inboxLogo" />
+      </router-link>
     </div>
     <div class="home">
       <router-link class="addBand" :to="{ name: 'addBand' }"
-        >Add new Band</router-link
-      >
+        ><img src="..\assets\add-user.png" alt="addUser" class="addUser" />
+      </router-link>
       <band-list></band-list>
     </div>
   </div>
@@ -70,9 +72,12 @@ body.home {
   font-size: 14pt;
   font-weight: 900;
 }
-.inbox {
-  color: white;
-  font-size: 15pt;
-  font-weight: 900;
+.inboxLogo {
+  max-width: auto;
+  width: 100px;
+}
+.addUser {
+  max-width: auto;
+  width: 100px;
 }
 </style>
