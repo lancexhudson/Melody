@@ -106,7 +106,7 @@ VALUES (1005, 2002);
 INSERT INTO band (band_name, description, image_link)
 VALUES ('Weezer',
 'Weezer is an American rock band formed in Los Angeles, California, in 1992. Since 2001, the band has consisted of Rivers Cuomo (lead vocals, lead guitar, keyboards), Patrick Wilson (drums), Scott Shriner (bass guitar, keyboards, backing vocals), and Brian Bell (rhythm guitar, keyboards, backing vocals).',
-'https://m.media-amazon.com/images/I/71nYpz++VCL._SL1400_.jpg');
+'https://www.hollywoodreporter.com/wp-content/uploads/2018/12/weezer.jpg');
 INSERT INTO band_genre (band_id, genre_id)
 VALUES (1006, 2001);
 INSERT INTO band_genre (band_id, genre_id)
