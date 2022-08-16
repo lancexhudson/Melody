@@ -29,7 +29,10 @@ public class EventController {
         eventDAO.createEvent(eventDTO.getEventDate(), eventDTO.getEventTime(), eventDTO.getVenue(), eventDTO.getBandId());
     }
 
-    @RequestMapping(path = )
+    @RequestMapping(path = "/events/band/{id}", method = RequestMethod.GET)
+    public List<Event> listEventsForBand(@PathVariable("id") int bandId) {
+        return eventDAO.listEventsByBandId(bandId);
+    }
 
 
 }

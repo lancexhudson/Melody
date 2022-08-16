@@ -58,6 +58,7 @@ export default {
   data() {
     return {
       genreWord: this.returnString(this.band),
+      myEvents: [],
     };
   },
 
@@ -67,6 +68,9 @@ export default {
       let genre = this.band.genres;
       return genre;
     },
+  },
+  methods: {
+    setEvents() {},
   },
 };
 </script>
