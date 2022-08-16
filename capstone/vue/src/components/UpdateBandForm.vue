@@ -4,6 +4,9 @@
     class="update-band-form"
     v-on:submit.prevent="updateBand"
   >
+    <div>
+      <p class="updateBand">UPDATE YOUR BAND</p>
+    </div>
     <ul class="band-updating">
       <li class="form-row">
         <input
@@ -125,6 +128,18 @@ option,
 button {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
+.update-band-form {
+  display: block;
+  flex-direction: column;
+  align-content: center;
+  margin-left: 54.6rem;
+  margin-top: 1rem;
+  min-width: auto;
+  width: 350px;
+  border: solid rgb(255, 255, 255) 1px;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 0.5rem;
+}
 .form {
   justify-content: center;
   align-items: center;
@@ -139,8 +154,9 @@ button {
 .band-name-update {
   width: 330px;
   padding: 0;
-  margin: 0;
+  margin: 5px;
   border: 0;
+  height: 25px;
 }
 .band-description-input {
   height: 50px;
@@ -159,12 +175,18 @@ button {
   width: 330px;
   padding: 0;
   border: 3px;
-  margin: 0;
+  margin: 5px;
 }
 .updateBandButton {
   width: 330px;
   padding: 0;
   border: 3px;
   margin: 0;
+  height: 30px;
+}
+.updateBand {
+  font-size: 15pt;
+  font-weight: 900;
+  text-decoration: underline;
 }
 </style>

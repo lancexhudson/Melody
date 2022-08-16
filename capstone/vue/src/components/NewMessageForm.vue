@@ -1,16 +1,20 @@
 <template>
-  <div>
+  <div class="messageCard">
     <form
       v-if="isManager"
       class="new-message-form"
       v-on:submit.prevent="sendMessage"
     >
+      <div>
+        <p class="sendMessage">MESSAGE YOUR FOLLOWERS</p>
+      </div>
       <input
         v-model="newMessage.message"
         type="text"
         class="messageInput"
         placeholder="message"
       />
+      <br />
       <button class="sendButton">Send</button>
     </form>
   </div>
@@ -75,5 +79,29 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style>
+.sendMessage {
+  font-size: 15pt;
+  font-weight: 900;
+  text-decoration: underline;
+}
+.messageInput {
+  width: 330px;
+  height: 50px;
+  padding: 0;
+  border: 3px;
+  margin: 0;
+}
+.messageCard {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: auto;
+  width: 350px;
+  height: auto;
+  min-height: 150px;
+  border: solid rgb(255, 255, 255) 1px;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 0.5rem;
+}
 </style>
