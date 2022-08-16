@@ -62,21 +62,25 @@ import genreService from "@/services/GenreService.js";
 
 export default {
   name: "band-form",
+
+  props: ["band"],
+
   data() {
     return {
       newBand: {
-        bandName:"",
+        bandName: "",
         description: "",
         genre: [],
         imageLink: "",
       },
+      theBandId: this.$route.params.bandId,
     };
   },
   methods: {
     updateBand() {
-      bandService.updateBand(this.newBand).then((response) => {
+      bandService.updateBand(this.theBandId, this.newBand).then((response) => {
         if (response.status == 200) {
-          this.$router.push({ name: "home" });
+          this.$router.go();
         }
       });
       this.newBand = {
