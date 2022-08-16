@@ -156,7 +156,6 @@ button {
   margin: 0;
 }
 .addYourBand {
-  border: whitesmoke;
   font-size: 2rem;
   margin-bottom: 10px;
 }

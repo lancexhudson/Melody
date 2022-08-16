@@ -43,10 +43,10 @@ export default {
 </script>
 
 <style>
-.message-container {
+/* .message-container {
   border: rgb(0, 0, 0) solid;
   background-color: rgb(0, 0, 0);
-}
+} */
 
 .smallTextBox {
   border: white solid;
