@@ -1,5 +1,14 @@
 <template>
   <div class="message-container">
+    <div>
+      <router-link v-bind:to="{ name: 'home' }" class="logoContainer">
+        <img
+          src="..\assets\LOGO TRANSPARENCY white.png"
+          alt="Melody Logo"
+          class="homelogo"
+        />
+      </router-link>
+    </div>
     <div
       class="smallTextBox"
       v-for="message in this.$store.state.myMessages"
@@ -35,8 +44,8 @@ export default {
 
 <style>
 .message-container {
-  border: cornflowerblue solid;
-  background-color: cornflowerblue;
+  border: rgb(0, 0, 0) solid;
+  background-color: rgb(0, 0, 0);
 }
 
 .smallTextBox {

@@ -68,5 +68,11 @@ body.home {
 .addBand {
   color: rgb(250, 250, 250);
   font-size: 14pt;
+  font-weight: 900;
+}
+.inbox {
+  color: white;
+  font-size: 15pt;
+  font-weight: 900;
 }
 </style>
