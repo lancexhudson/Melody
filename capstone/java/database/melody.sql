@@ -145,4 +145,12 @@ VALUES ('Foo Fighters',
 INSERT INTO band_genre (band_id, genre_id)
 VALUES (1010, 2001);
 
+INSERT INTO band (band_name, description, image_link)
+VALUES ('Bad Brains',
+'Bad Brains are an American rock band formed in Washington, D.C. in 1976. Originally a jazz fusion band under the name Mind Power, they are widely regarded as pioneers of hardcore punk, though the band''s members have objected to the use of this term to describe their music.',
+'https://upload.wikimedia.org/wikipedia/commons/6/60/Bad_brains_1983.jpg');
+
+
+
+
 COMMIT;

@@ -58,7 +58,7 @@ export default {
 .homelogo {
   align-self: auto;
 
-  max-width: 20%;
+  max-width: 35%;
   margin: 0%;
 
   flex-shrink: 1;
@@ -87,12 +87,12 @@ body.home {
 }
 .inboxLogo {
   max-width: auto;
-  width: 50px;
+  width: 52px;
   margin: 2em;
 }
 .addUser {
   max-width: auto;
-  width: 50px;
+  width: 48px;
   margin: 2em;
 }
 .homeNav {
