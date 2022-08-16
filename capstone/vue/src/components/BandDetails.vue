@@ -58,6 +58,7 @@ export default {
   data() {
     return {
       genreWord: this.returnString(this.band),
+      myEvents: [],
     };
   },
 
@@ -67,6 +68,9 @@ export default {
       let genre = this.band.genres;
       return genre;
     },
+  },
+  methods: {
+    setEvents() {},
   },
 };
 </script>
@@ -143,7 +147,6 @@ body.bandDetails {
 .upcoming-events-h3 {
   text-decoration: underline;
   font-weight: lighter;
-
   margin-bottom: 0px;
 }
 
@@ -152,7 +155,6 @@ body.bandDetails {
   border-radius: 0.5rem;
   border: solid rgb(255, 255, 255) 1px;
   background: rgba(0, 0, 0, 0.8);
-
   margin: 1rem;
   margin: 25px 0;
   font-size: 0.9em;
@@ -164,7 +166,7 @@ body.bandDetails {
 }
 
 .upcoming-events-table thead tr {
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgb(29, 26, 26);
   color: #ffffff;
   text-align: center;
 }

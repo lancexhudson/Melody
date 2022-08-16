@@ -1,9 +1,9 @@
 <template>
   <div class="add-your-band-form">
-    <h4 class="addYourBand">ADD YOUR BAND</h4>
+    <h4 class="addYourBand">Add Your Band</h4>
     <form class="new-band-form" v-on:submit.prevent="saveBand">
       <ul class="band-creation">
-        <li class="form-row">
+        <li class="form-row-name">
           <input
             class="band-name-input"
             type="text"
@@ -12,7 +12,7 @@
             required
           />
         </li>
-        <li class="form-row">
+        <li class="form-row-description">
           <textarea
             class="band-description-input"
             type="textarea"
@@ -22,7 +22,7 @@
           >
           </textarea>
         </li>
-        <li class="form-row">
+        <li class="form-row-genre">
           <select
             class="genre-selector"
             name="genre-selector"
@@ -41,7 +41,7 @@
             </option>
           </select>
         </li>
-        <li class="form-row">
+        <li class="form-row-image">
           <textarea
             class="image-link"
             placeholder=" Image Link"
@@ -51,7 +51,7 @@
           </textarea>
         </li>
 
-        <li class="form-row">
+        <li class="form-row-save">
           <button class="saveBandButton">Save Band</button>
         </li>
       </ul>
@@ -110,9 +110,8 @@ export default {
   border: solid rgb(255, 255, 255) 1px;
   background: rgba(0, 0, 0, 0.8);
   border-radius: 0.5rem;
-  width: 700px;
-  margin-top: 1rem;
-  margin-bottom: 230px;
+  width: 100%;
+  margin-bottom: 20px;
   max-width: 700px;
 }
 
@@ -129,41 +128,49 @@ button {
 .form {
   justify-content: center;
   align-items: center;
-  padding-top: 80px;
 }
 .band-creation {
   display: flex;
   flex-direction: column;
   margin-bottom: 300px;
-  margin-right: 20px;
+  margin-right: 40px;
   list-style: none;
 }
 
 .band-name-input {
   width: 330px;
+  height: 30px;
   padding: 0;
   margin: 0.5rem;
   border: 0;
   height: 25px;
 }
+
 .band-description-input {
-  height: 50px;
+  height: 40px;
   width: 330px;
   padding: 0;
   border: 3px;
   margin: 0.5rem;
+
+  border-radius: 0.2rem;
 }
 .genre-selector {
   width: 330px;
   padding: 0;
   border: 3px;
   margin: 0.5rem;
+
+  border-radius: 0.2rem;
 }
+
 .image-link {
   width: 330px;
   padding: 0;
   border: 3px;
   margin: 0.5rem;
+
+  border-radius: 0.2rem;
 }
 .saveBandButton {
   width: auto;
@@ -173,9 +180,23 @@ button {
   padding: 0;
   border: 3px;
   margin: 0;
+  border-radius: 0.2rem;
 }
 .addYourBand {
   font-size: 2rem;
   margin-bottom: 1rem;
+}
+
+.form-row {
+  border: white solid;
+  border-radius: 1rem;
+  background-color: 255, 255, 255, 0.8;
+
+  backdrop-filter: blur(10px);
+  margin: 1rem;
+  margin-right: auto;
+  max-width: 50rem;
+  margin-left: 9px;
+  border-radius: 0.5rem;
 }
 </style>

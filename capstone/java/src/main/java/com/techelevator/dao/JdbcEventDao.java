@@ -36,7 +36,15 @@ public class JdbcEventDao implements EventDAO {
 
     @Override
     public List<Event> listEventsByBandId(int bandId) {
-        return null;
+        List<Event> allBandEvents = new ArrayList<>();
+        String sql = "SELECT event_id, event_date, event_time, venue, band_id FROM events WHERE band_id = ?";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, bandId);
+        while (results.next()){
+            Event event = mapRowToEvent(results);
+            allBandEvents.add(event);
+        }
+        return allBandEvents;
+
     }
 
     @Override
