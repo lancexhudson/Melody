@@ -12,8 +12,12 @@
         class="logOut"
         v-bind:to="{ name: 'logout' }"
         v-if="$store.state.token != ''"
-        >Logout</router-link
-      >
+        ><img
+          title="LOGOUT"
+          src=".\assets\turn-off.png"
+          alt="logout"
+          class="logoutLogo"
+      /></router-link>
     </div>
     <router-view />
   </div>
@@ -31,5 +35,11 @@ body {
   font-size: 14pt;
   color: aliceblue;
   font-weight: 900;
+}
+.logoutLogo {
+  max-width: auto;
+  width: 30px;
+  margin-top: 0.5rem;
+  margin-right: 0.5rem;
 }
 </style>
