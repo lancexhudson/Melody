@@ -29,4 +29,6 @@ public interface BandDao {
 
     List<Integer> usersFollowingMyBand(int bandId);
 
+    int managerOfMyBand(int bandId);
+
 }

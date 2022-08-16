@@ -218,6 +218,13 @@ public class JdbcBandDao implements BandDao {
         return users;
     }
 
+    @Override
+    public int managerOfMyBand(int bandId) {
+        String sql = "SELECT user_id FROM band_user WHERE band_id = ?;";
+        int managerId = jdbcTemplate.queryForObject(sql, int.class, bandId);
+        return managerId;
+    }
+
 
     private Band mapRowToBand(SqlRowSet rs) {
         Band band = new Band();

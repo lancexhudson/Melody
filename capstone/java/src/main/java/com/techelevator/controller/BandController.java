@@ -63,4 +63,9 @@ public class BandController {
     public List<Integer> myFollowers(@PathVariable("id") int bandId) {
         return bandDao.usersFollowingMyBand(bandId);
     }
+
+    @RequestMapping(path = "/bands/myManager/{id}", method = RequestMethod.GET)
+    public int myManager(@PathVariable("id") int bandId) {
+        return bandDao.managerOfMyBand(bandId);
+    }
 }
