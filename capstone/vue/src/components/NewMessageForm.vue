@@ -67,13 +67,6 @@ export default {
         this.myManager = response.data;
       });
     },
-    areYouMyManager() {
-      if (this.myManager === this.$store.state.user.id) {
-        this.isMyManager = true;
-      } else {
-        this.isMyManager = false;
-      }
-    },
   },
   created() {
     this.setMyFollowers();
