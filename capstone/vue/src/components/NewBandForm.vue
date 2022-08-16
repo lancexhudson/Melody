@@ -1,59 +1,62 @@
 <template>
-  <form class="new-band-form" v-on:submit.prevent="saveBand">
-    <ul class="band-creation">
-      <li class="form-row">
-        <input
-          class="band-name-input"
-          type="text"
-          placeholder="  Band Name"
-          v-model="newBand.bandName"
-          required
-        />
-      </li>
-      <li class="form-row">
-        <textarea
-          class="band-description-input"
-          type="textarea"
-          placeholder=" Your Band's Description"
-          v-model="newBand.description"
-          required
-        >
-        </textarea>
-      </li>
-      <li class="form-row">
-        <select
-          class="genre-selector"
-          name="genre-selector"
-          id="genre-select"
-          v-model="newBand.genre"
-          required
-          multiple
-        >
-          <option value="" disabled selected>Select Genre</option>
-          <option
-            v-for="genre in this.$store.state.genres"
-            v-bind:key="genre.genreId"
-            :value="genre.genreId"
+  <div>
+    <h4 class="addYourBand">ADD YOUR BAND</h4>
+    <form class="new-band-form" v-on:submit.prevent="saveBand">
+      <ul class="band-creation">
+        <li class="form-row">
+          <input
+            class="band-name-input"
+            type="text"
+            placeholder="  Band Name"
+            v-model="newBand.bandName"
+            required
+          />
+        </li>
+        <li class="form-row">
+          <textarea
+            class="band-description-input"
+            type="textarea"
+            placeholder=" Your Band's Description"
+            v-model="newBand.description"
+            required
           >
-            {{ genre.genreName }}
-          </option>
-        </select>
-      </li>
-      <li class="form-row">
-        <textarea
-          class="image-link"
-          placeholder=" Image Link"
-          v-model="newBand.imageLink"
-          required
-        >
-        </textarea>
-      </li>
+          </textarea>
+        </li>
+        <li class="form-row">
+          <select
+            class="genre-selector"
+            name="genre-selector"
+            id="genre-select"
+            v-model="newBand.genre"
+            required
+            multiple
+          >
+            <option value="" disabled selected>Select Genre</option>
+            <option
+              v-for="genre in this.$store.state.genres"
+              v-bind:key="genre.genreId"
+              :value="genre.genreId"
+            >
+              {{ genre.genreName }}
+            </option>
+          </select>
+        </li>
+        <li class="form-row">
+          <textarea
+            class="image-link"
+            placeholder=" Image Link"
+            v-model="newBand.imageLink"
+            required
+          >
+          </textarea>
+        </li>
 
-      <li class="form-row">
-        <button class="saveBandButton">Save Band</button>
-      </li>
-    </ul>
-  </form>
+        <li class="form-row">
+          <button class="saveBandButton">Save Band</button>
+        </li>
+      </ul>
+    </form>
+  </div>
 </template>
 
 <script>
@@ -115,7 +118,8 @@ button {
 .band-creation {
   display: flex;
   flex-direction: column;
-  padding: 0;
+  margin-bottom: 300px;
+  margin-right: 20px;
   list-style: none;
 }
 
@@ -145,9 +149,15 @@ button {
   margin: 0;
 }
 .saveBandButton {
-  width: 330px;
+  width: auto;
+  min-width: 300px;
   padding: 0;
   border: 3px;
   margin: 0;
+}
+.addYourBand {
+  border: whitesmoke;
+  font-size: 2rem;
+  margin-bottom: 10px;
 }
 </style>

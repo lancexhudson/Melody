@@ -26,6 +26,9 @@ export default {
     },
     usersFollowingMyBand(bandId) {
         return axios.get(`/bands/myFollowers/${bandId}`);
+    },
+    getMyManager(bandId) {
+        return axios.get(`/bands/myManager/${bandId}`);
     }
 
 }

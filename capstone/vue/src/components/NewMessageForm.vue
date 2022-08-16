@@ -1,6 +1,10 @@
 <template>
   <div>
-    <form class="new-message-form" v-on:submit.prevent="sendMessage">
+    <form
+      v-if="isManager"
+      class="new-message-form"
+      v-on:submit.prevent="sendMessage"
+    >
       <input
         v-model="newMessage.message"
         type="text"
@@ -20,22 +24,33 @@ export default {
   data() {
     return {
       newMessage: {
-        userId: [],
+        userId: 0,
         bandId: this.$route.params.bandId,
         message: "",
       },
+      myFollowers: [],
+      myManager: 0,
     };
+  },
+  computed: {
+    isManager() {
+      return this.myManager == this.$store.state.user.id ? true : false;
+    },
   },
   methods: {
     sendMessage() {
-      messageService.createMessage(this.newMessage).then((response) => {
-        if (response.status == 201) {
-          this.$router.back();
-        }
+      this.myFollowers.forEach((user) => {
+        this.newMessage.userId = user;
+        messageService.createMessage(this.newMessage).then((response) => {
+          if (response.status == 201) {
+            this.$router.back();
+          }
+        });
       });
+
       this.newMessage = {
         userId: 0,
-        bandId: 0,
+        bandId: this.$route.params.bandId,
         message: "",
       };
     },
@@ -43,12 +58,25 @@ export default {
       bandService
         .usersFollowingMyBand(this.newMessage.bandId)
         .then((response) => {
-          this.newMessage.userId = response.data;
+          this.myFollowers = response.data;
         });
+    },
+    setMyManager() {
+      bandService.getMyManager(this.newMessage.bandId).then((response) => {
+        this.myManager = response.data;
+      });
+    },
+    areYouMyManager() {
+      if (this.myManager === this.$store.state.user.id) {
+        this.isMyManager = true;
+      } else {
+        this.isMyManager = false;
+      }
     },
   },
   created() {
     this.setMyFollowers();
+    this.setMyManager();
   },
 };
 </script>
