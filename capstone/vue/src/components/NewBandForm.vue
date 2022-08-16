@@ -111,7 +111,7 @@ export default {
   background: rgba(0, 0, 0, 0.8);
   border-radius: 0.5rem;
   width: 700px;
-  margin-top: 150px;
+  margin-top: 1rem;
   margin-bottom: 230px;
   max-width: 700px;
 }
@@ -142,37 +142,40 @@ button {
 .band-name-input {
   width: 330px;
   padding: 0;
-  margin: 0;
+  margin: 0.5rem;
   border: 0;
+  height: 25px;
 }
 .band-description-input {
   height: 50px;
   width: 330px;
   padding: 0;
   border: 3px;
-  margin: 0;
+  margin: 0.5rem;
 }
 .genre-selector {
   width: 330px;
   padding: 0;
   border: 3px;
-  margin: 0;
+  margin: 0.5rem;
 }
 .image-link {
   width: 330px;
   padding: 0;
   border: 3px;
-  margin: 0;
+  margin: 0.5rem;
 }
 .saveBandButton {
   width: auto;
   min-width: 300px;
+  height: auto;
+  min-height: 25px;
   padding: 0;
   border: 3px;
   margin: 0;
 }
 .addYourBand {
   font-size: 2rem;
-  margin-bottom: 10px;
+  margin-bottom: 1rem;
 }
 </style>
