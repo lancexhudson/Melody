@@ -14,7 +14,7 @@
       v-for="message in this.$store.state.myMessages"
       v-bind:key="message.messageId"
     >
-      <p class="fromBand">from: {{ message.fromBand }}</p>
+      <p class="fromBand">From: {{ message.fromBand }}</p>
       <p class="messageBody">
         {{ message.message }}
       </p>
@@ -50,19 +50,23 @@ export default {
 
 .smallTextBox {
   border: white solid;
-  border-radius: 2rem;
-  background-color: white;
+  border-radius: 1rem;
+  background-color: 255, 255, 255, 0.8;
+
+  backdrop-filter: blur(10px);
   margin: 1rem;
-  margin-right: 20rem;
-  margin-left: 20rem;
+  margin-right: auto;
+  max-width: 50rem;
+  margin-left: auto;
 }
 
 .messageBody {
-  color: black;
-  font-size: 15pt;
+  color: white;
+  font-size: 20pt;
 }
 .fromBand {
-  color: black;
-  font-size: 15pt;
+  color: white;
+  font-size: 20pt;
+  font-weight: 900;
 }
 </style>
