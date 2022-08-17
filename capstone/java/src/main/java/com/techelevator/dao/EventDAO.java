@@ -2,6 +2,8 @@ package com.techelevator.dao;
 
 import com.techelevator.model.Event;
 
+import java.sql.Time;
+import java.util.Date;
 import java.util.List;
 
 public interface EventDAO {
@@ -12,7 +14,7 @@ public interface EventDAO {
 
     List<Event> listEventsByBandId(int bandId);
 
-    boolean createEvent(String eventDate, String eventTime, String venue, int bandId);
+    boolean createEvent(Date eventDate, Time eventTime, String venue, int bandId);
 
 
 

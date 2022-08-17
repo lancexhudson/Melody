@@ -1,6 +1,6 @@
 BEGIN TRANSACTION;
-DROP TABLE IF EXISTS band, genre, band_genre, band_user, user_favorite_bands, messages;
-DROP SEQUENCE IF EXISTS seq_band_id, seq_genre_id, seq_message_id;
+DROP TABLE IF EXISTS band, genre, band_genre, band_user, user_favorite_bands, messages, events;
+DROP SEQUENCE IF EXISTS seq_band_id, seq_genre_id, seq_message_id, seq_event_id;
 CREATE SEQUENCE seq_band_id
   INCREMENT BY 1
   START WITH 1001
@@ -73,8 +73,6 @@ band_id int NOT NULL,
 CONSTRAINT PK_event_id PRIMARY KEY (event_id),
 CONSTRAINT FK_band_id FOREIGN KEY (band_id) REFERENCES band(band_id)
 );
-
-
 
 INSERT INTO genre (genre_name) 
 VALUES ('Pop'), ('Rock'), ('HipHop'), ('Classical'), ('R&B'),('Electronic'), ('Country'), 

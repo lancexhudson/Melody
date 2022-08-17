@@ -33,7 +33,7 @@
           v-bind:key="event.eventId"
         >
           <td>{{ event.eventDate }}</td>
-          <td>{{ event.eventTime }}</td>
+          <td>{{ formatTime(event.eventTime) }}</td>
           <td>
             <a
               href="https://www.livenation.com/venue/KovZpZAEk6IA/bogart-s-events"
@@ -65,6 +65,16 @@ export default {
       eventService.listEventsForBand(this.myBandId).then((response) => {
         this.myEvents = response.data;
       });
+    },
+    formatTime(time) {
+      var hours = time.substring(0, 2);
+      var minutes = time.substring(3, 5);
+      var ampm = hours >= 12 ? "pm" : "am";
+      hours = hours % 12;
+      hours = hours ? hours : 12; // the hour '0' should be '12'
+      //minutes = minutes < 10 ? "0" + minutes : minutes;
+      var strTime = hours + ":" + minutes + " " + ampm;
+      return strTime;
     },
   },
   created() {

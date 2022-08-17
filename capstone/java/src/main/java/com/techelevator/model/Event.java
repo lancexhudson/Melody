@@ -1,19 +1,23 @@
 package com.techelevator.model;
 
+import java.sql.Time;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.Date;
 import java.util.Objects;
 
 public class Event {
 
     private int eventId;
-    private String eventDate;
-    private String eventTime;
+    private Date eventDate;
+    private LocalTime eventTime;
     private String venue;
     private int bandId;
 
     public Event() {
     }
 
-    public Event(int eventId, String eventDate, String eventTime, String venue, int bandId) {
+    public Event(int eventId, Date eventDate, LocalTime eventTime, String venue, int bandId) {
         this.eventId = eventId;
         this.eventDate = eventDate;
         this.eventTime = eventTime;
@@ -29,19 +33,19 @@ public class Event {
         this.eventId = eventId;
     }
 
-    public String getEventDate() {
+    public Date getEventDate() {
         return eventDate;
     }
 
-    public void setEventDate(String eventDate) {
+    public void setEventDate(Date eventDate) {
         this.eventDate = eventDate;
     }
 
-    public String getEventTime() {
+    public LocalTime getEventTime() {
         return eventTime;
     }
 
-    public void setEventTime(String eventTime) {
+    public void setEventTime(LocalTime eventTime) {
         this.eventTime = eventTime;
     }
 

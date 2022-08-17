@@ -1,22 +1,45 @@
 <template>
-  <div class="addEvent">
-    <input type="date" v-model="newEvent.date" class="dateInput" />
-    <input type="time" v-model="newEvent.time" />
-    <input type="text" placeholder="venue" v-model="newEvent.venue" />
+  <div>
+    <form class="addEvent" action="" v-on:submit.prevent="addEvent">
+      <input type="date" v-model="newEvent.eventDate" />
+      <input type="time" v-model="newEvent.eventTime" />
+      <input type="text" placeholder="venue" v-model="newEvent.venue" />
+      <button>Add Event</button>
+    </form>
   </div>
 </template>
 
 <script>
+import eventService from "@/services/EventService.js";
 export default {
   name: "new-event-form",
   data() {
     return {
       newEvent: {
-        date: "",
-        time: "",
+        eventDate: "",
+        eventTime: "",
         venue: "",
+        bandId: this.$route.params.bandId,
       },
     };
+  },
+  methods: {
+    addEvent() {
+      this.newEvent.eventTime = this.newEvent.eventTime + ":00";
+
+      eventService.createAnEvent(this.newEvent).then((response) => {
+        if (response.status == 201) {
+          this.newEvent = {
+            eventDate: "",
+            eventTime: "",
+            venue: "",
+            bandId: this.$route.params.bandId,
+          };
+
+          this.$router.go();
+        }
+      });
+    },
   },
 };
 </script>

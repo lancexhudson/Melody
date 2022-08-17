@@ -5,8 +5,14 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 
+import java.sql.Time;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+
 
 @Component
 public class JdbcEventDao implements EventDAO {
@@ -48,7 +54,7 @@ public class JdbcEventDao implements EventDAO {
     }
 
     @Override
-    public boolean createEvent(String eventDate, String eventTime, String venue, int bandId) {
+    public boolean createEvent(Date eventDate, Time eventTime, String venue, int bandId) {
         String sql = "INSERT INTO events (event_date, event_time, venue, band_id) VALUES (?,?,?,?) RETURNING event_id";
         int eventId = jdbcTemplate.queryForObject(sql, int.class, eventDate, eventTime, venue, bandId);
         return true;
@@ -57,8 +63,11 @@ public class JdbcEventDao implements EventDAO {
     private Event mapRowToEvent(SqlRowSet rs){
         Event event = new Event();
         event.setEventId(rs.getInt("event_id"));
-        event.setEventDate(rs.getString("event_date"));
-        event.setEventTime(rs.getString("event_time"));
+        event.setEventDate(rs.getDate("event_date"));
+        String theTime = String.valueOf(rs.getTime("event_time"));
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss");
+        LocalTime newTime = LocalTime.parse(theTime, formatter);
+        event.setEventTime(newTime);
         event.setVenue(rs.getString("venue"));
         event.setBandId(rs.getInt("band_id"));
         return event;
