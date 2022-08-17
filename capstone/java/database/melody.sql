@@ -154,7 +154,6 @@ INSERT INTO band (band_name, description, image_link)
 VALUES ('Alabama Shakes',
 'Alabama Shakes is an American rock band formed in Athens, Alabama, in 2009. The band consists of lead singer and guitarist Brittany Howard, guitarist Heath Fogg, bassist Zac Cockrell, and drummer Steve Johnson. The group rose to prominence in the early 2010s and has sold over 1.5 million albums in the US.',
 'http://media.philly.com/images/AlabamaShakes-1024.jpg');
-INSERT INTO band_genre (band_id, genre_id)
-VALUES (1015, 2018);
+
 
 COMMIT;
