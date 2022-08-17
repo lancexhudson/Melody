@@ -100,7 +100,7 @@ body.bandDetails {
   border-radius: 0.5rem;
   padding: 50px;
   width: 100%;
-  margin-top: 100px;
+  margin-top: 5rem;
   margin-bottom: 100px;
   max-width: 700px;
   height: auto;

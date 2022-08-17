@@ -8,7 +8,7 @@
       <p class="updateBand">UPDATE YOUR BAND</p>
     </div>
     <ul class="band-updating">
-      <li class="form-row">
+      <li>
         <input
           class="band-name-update"
           type="text"
@@ -17,7 +17,7 @@
           required
         />
       </li>
-      <li class="form-row">
+      <li>
         <textarea
           class="band-description-input"
           type="textarea"
@@ -27,7 +27,7 @@
         >
         </textarea>
       </li>
-      <li class="form-row">
+      <li>
         <select
           class="genre-selector-update"
           name="genre-selector"
@@ -46,7 +46,7 @@
           </option>
         </select>
       </li>
-      <li class="form-row">
+      <li>
         <textarea
           class="image-link-update"
           placeholder=" Image Link"
@@ -56,7 +56,7 @@
         </textarea>
       </li>
 
-      <li class="form-row">
+      <li>
         <button class="updateBandButton">Update Band</button>
       </li>
     </ul>
@@ -140,10 +140,7 @@ button {
   background: rgba(0, 0, 0, 0.7);
   border-radius: 0.5rem;
 }
-.form {
-  justify-content: center;
-  align-items: center;
-}
+
 .band-updating {
   display: flex;
   flex-direction: column;
@@ -152,36 +149,45 @@ button {
 }
 
 .band-name-update {
-  width: 330px;
+  display: flex;
+  justify-content: center;
+  width: 320px;
+  max-width: auto;
   padding: 0;
-  margin: 5px;
-  border: 0;
+  margin-left: 1rem;
+  /* border: 0; */
   height: 25px;
 }
 .band-description-input {
+  display: flex;
+  justify-items: center;
   height: 50px;
-  width: 330px;
-  padding: 0;
-  border: 3px;
-  margin: 0;
+  width: 320px;
+  border-radius: 0rem;
+  margin-left: 1rem;
 }
 .genre-selector-update {
-  width: 330px;
+  width: 320px;
   padding: 0;
-  border: 3px;
+
   margin: 0;
 }
 .image-link-update {
-  width: 330px;
+  display: flex;
+  justify-content: center;
+  width: 320px;
   padding: 0;
-  border: 3px;
-  margin: 5px;
+
+  margin: 0.8rem;
 }
 .updateBandButton {
-  width: 330px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 320px;
   padding: 0;
   border: 3px;
-  margin: 0;
+  margin-left: 0.82rem;
   height: 30px;
 }
 .updateBand {
