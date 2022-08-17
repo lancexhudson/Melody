@@ -59,6 +59,23 @@ CONSTRAINT FK_user_id FOREIGN KEY (user_id) REFERENCES users(user_id),
 CONSTRAINT FK_band_id FOREIGN KEY (band_id) REFERENCES band(band_id)	
 );
 
+CREATE SEQUENCE seq_event_id
+  INCREMENT BY 1
+  START WITH 4001
+  NO MAXVALUE;
+
+CREATE TABLE events (
+event_id int NOT NULL DEFAULT nextval('seq_event_id'),
+event_date DATE,  
+event_time TIME,
+venue varchar(100),
+band_id int NOT NULL,
+CONSTRAINT PK_event_id PRIMARY KEY (event_id),
+CONSTRAINT FK_band_id FOREIGN KEY (band_id) REFERENCES band(band_id)
+);
+
+
+
 INSERT INTO genre (genre_name) 
 VALUES ('Pop'), ('Rock'), ('HipHop'), ('Classical'), ('R&B'),('Electronic'), ('Country'), 
 		('Blues'), ('Jazz'), ('Metal'), ('Reggae'), ('Folk'), ('Latin'), ('A Capella'), ('Funk'), 
