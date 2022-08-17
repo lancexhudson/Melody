@@ -166,9 +166,6 @@ INSERT INTO band_genre (band_id, genre_id)
 VALUES (1011, 2006);
 
 
-VALUES ('Darius Rucker', 'Darius Carlos Rucker (born May 13, 1966) is an American singer and songwriter. He first gained fame as the lead vocalist and rhythm guitarist of rock band Hootie & the Blowfish, which he founded in 1986 at the University of South Carolina along with Mark Bryan, Jim "Soni" Sonefeld, and Dean Felber. The band released five studio albums with Rucker as a member and charted six top 40 hits on the Billboard Hot 100. Rucker co-wrote most of the songs with the other members of the band.', 'https://res.cloudinary.com/usga/image/upload/c_fill,g_face,q_70,w_800/v1/usga/images/clubhouse/2016/2016-MC-images/DariusRucker.jpg');
-INSERT INTO band_genre (band_id, genre_id)
-VALUES (1012, 2007);
 
 
 
