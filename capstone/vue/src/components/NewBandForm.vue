@@ -1,20 +1,20 @@
 <template>
   <div class="add-your-band-form">
-    <h4 class="addYourBand">Add Your Band</h4>
+    <h4 class="addYourBand">ADD YOUR BAND</h4>
     <form class="new-band-form" v-on:submit.prevent="saveBand">
       <ul class="band-creation">
-        <li class="form-row-name">
+        <li>
           <input
-            class="band-name-input"
+            class="band-name-box"
             type="text"
             placeholder="  Band Name"
             v-model="newBand.bandName"
             required
           />
         </li>
-        <li class="form-row-description">
+        <li>
           <textarea
-            class="band-description-input"
+            class="band-description-box"
             type="textarea"
             placeholder=" Your Band's Description"
             v-model="newBand.description"
@@ -22,9 +22,9 @@
           >
           </textarea>
         </li>
-        <li class="form-row-genre">
+        <li>
           <select
-            class="genre-selector"
+            class="genre-selector-box"
             name="genre-selector"
             id="genre-select"
             v-model="newBand.genre"
@@ -41,9 +41,9 @@
             </option>
           </select>
         </li>
-        <li class="form-row-image">
+        <li>
           <textarea
-            class="image-link"
+            class="image-link-box"
             placeholder=" Image Link"
             v-model="newBand.imageLink"
             required
@@ -51,7 +51,7 @@
           </textarea>
         </li>
 
-        <li class="form-row-save">
+        <li>
           <button class="saveBandButton">Save Band</button>
         </li>
       </ul>
@@ -137,39 +137,37 @@ button {
   list-style: none;
 }
 
-.band-name-input {
+.band-name-box {
   width: 330px;
   height: 30px;
   padding: 0;
   margin: 0.5rem;
   border: 0;
   height: 25px;
+  border-radius: 0.2rem;
 }
 
-.band-description-input {
+.band-description-box {
   height: 40px;
   width: 330px;
   padding: 0;
   border: 3px;
   margin: 0.5rem;
-
   border-radius: 0.2rem;
 }
-.genre-selector {
+.genre-selector-box {
   width: 330px;
   padding: 0;
   border: 3px;
   margin: 0.5rem;
-
   border-radius: 0.2rem;
 }
 
-.image-link {
+.image-link-box {
   width: 330px;
   padding: 0;
   border: 3px;
   margin: 0.5rem;
-
   border-radius: 0.2rem;
 }
 .saveBandButton {
@@ -183,6 +181,9 @@ button {
   border-radius: 0.2rem;
 }
 .addYourBand {
+  font-size: 15pt;
+  font-weight: 900;
+  text-decoration: underline;
   font-size: 2rem;
   margin-bottom: 1rem;
 }

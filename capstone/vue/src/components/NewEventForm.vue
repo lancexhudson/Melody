@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <input type="date" v-model="newEvent.date" />
+  <div class="addEvent">
+    <input type="date" v-model="newEvent.date" class="dateInput" />
     <input type="time" v-model="newEvent.time" />
     <input type="text" placeholder="venue" v-model="newEvent.venue" />
   </div>
@@ -21,5 +21,17 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style>
+.addEvent {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  border: solid white 1px;
+  padding: 20px;
+  max-width: 320px;
+  margin-left: 54.3rem;
+  border-radius: 0.5rem;
+  margin-top: 1rem;
+  background: rgba(0, 0, 0, 0.8);
+}
 </style>
