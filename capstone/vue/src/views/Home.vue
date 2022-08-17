@@ -1,6 +1,4 @@
 
-
-
 <template>
   <div class="wholePage">
     <router-link v-bind:to="{ name: 'home' }" class="logoContainer">
@@ -33,6 +31,8 @@
       </div>
     </div>
     <band-list></band-list>
+    <footer>Connor, Patrick, Austin, Michael, Lance</footer>
+    <br />
   </div>
 </template>
 
@@ -100,5 +100,9 @@ body.home {
   flex-direction: row;
   align-items: center;
   justify-content: center;
+}
+
+footer {
+  font-weight: 50;
 }
 </style>

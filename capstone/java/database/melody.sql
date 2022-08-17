@@ -106,7 +106,7 @@ VALUES (1005, 2002);
 INSERT INTO band (band_name, description, image_link)
 VALUES ('Weezer',
 'Weezer is an American rock band formed in Los Angeles, California, in 1992. Since 2001, the band has consisted of Rivers Cuomo (lead vocals, lead guitar, keyboards), Patrick Wilson (drums), Scott Shriner (bass guitar, keyboards, backing vocals), and Brian Bell (rhythm guitar, keyboards, backing vocals).',
-'https://www.hollywoodreporter.com/wp-content/uploads/2018/12/weezer.jpg');
+'https://m.media-amazon.com/images/I/71nYpz++VCL._SL1400_.jpg');
 INSERT INTO band_genre (band_id, genre_id)
 VALUES (1006, 2001);
 INSERT INTO band_genre (band_id, genre_id)
@@ -150,7 +150,11 @@ VALUES ('Bad Brains',
 'Bad Brains are an American rock band formed in Washington, D.C. in 1976. Originally a jazz fusion band under the name Mind Power, they are widely regarded as pioneers of hardcore punk, though the band''s members have objected to the use of this term to describe their music.',
 'https://upload.wikimedia.org/wikipedia/commons/6/60/Bad_brains_1983.jpg');
 
-
-
+INSERT INTO band (band_name, description, image_link)
+VALUES ('Alabama Shakes',
+'Alabama Shakes is an American rock band formed in Athens, Alabama, in 2009. The band consists of lead singer and guitarist Brittany Howard, guitarist Heath Fogg, bassist Zac Cockrell, and drummer Steve Johnson. The group rose to prominence in the early 2010s and has sold over 1.5 million albums in the US.',
+'http://media.philly.com/images/AlabamaShakes-1024.jpg');
+INSERT INTO band_genre (band_id, genre_id)
+VALUES (1015, 2018);
 
 COMMIT;
