@@ -132,10 +132,10 @@ button {
   display: block;
   flex-direction: column;
   align-content: center;
-  margin-left: 54.6rem;
+  margin-left: 54.3rem;
   margin-top: 1rem;
   min-width: auto;
-  width: 350px;
+  width: 360px;
   border: solid rgb(255, 255, 255) 1px;
   background: rgba(0, 0, 0, 0.7);
   border-radius: 0.5rem;
@@ -169,8 +169,9 @@ button {
 .genre-selector-update {
   width: 320px;
   padding: 0;
+  margin-right: 13px;
 
-  margin: 0;
+  margin-left: 0.4rem;
 }
 .image-link-update {
   display: flex;

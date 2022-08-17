@@ -1,6 +1,7 @@
 <template>
   <div>
     <form class="addEvent" action="" v-on:submit.prevent="addEvent">
+      <h5 class="eventDetailsHeader">ADD YOUR EVENT</h5>
       <input type="date" v-model="newEvent.eventDate" />
       <input type="time" v-model="newEvent.eventTime" />
       <input type="text" placeholder="venue" v-model="newEvent.venue" />
@@ -63,5 +64,6 @@ export default {
   font-weight: 900;
   font-size: 15pt;
   text-decoration: underline;
+  color: white;
 }
 </style>
