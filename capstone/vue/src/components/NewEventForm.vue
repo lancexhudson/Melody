@@ -57,4 +57,11 @@ export default {
   margin-top: 1rem;
   background: rgba(0, 0, 0, 0.8);
 }
+.eventDetailsHeader {
+  margin: 20px;
+  margin-top: -2px;
+  font-weight: 900;
+  font-size: 15pt;
+  text-decoration: underline;
+}
 </style>
