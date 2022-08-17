@@ -1,6 +1,11 @@
 <template>
   <div>
-    <form class="addEvent" action="" v-on:submit.prevent="addEvent">
+    <form
+      v-if="isManager"
+      class="addEvent"
+      action=""
+      v-on:submit.prevent="addEvent"
+    >
       <h5 class="eventDetailsHeader">ADD YOUR EVENT</h5>
       <input type="date" v-model="newEvent.eventDate" />
       <input type="time" v-model="newEvent.eventTime" />
@@ -12,6 +17,7 @@
 
 <script>
 import eventService from "@/services/EventService.js";
+import bandService from "@/services/BandService.js";
 export default {
   name: "new-event-form",
   data() {
@@ -22,7 +28,13 @@ export default {
         venue: "",
         bandId: this.$route.params.bandId,
       },
+      myManager: 0,
     };
+  },
+  computed: {
+    isManager() {
+      return this.myManager == this.$store.state.user.id ? true : false;
+    },
   },
   methods: {
     addEvent() {
@@ -41,6 +53,14 @@ export default {
         }
       });
     },
+    setMyManager() {
+      bandService.getMyManager(this.newEvent.bandId).then((response) => {
+        this.myManager = response.data;
+      });
+    },
+  },
+  created() {
+    this.setMyManager();
   },
 };
 </script>
