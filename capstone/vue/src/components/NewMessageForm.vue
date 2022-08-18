@@ -44,7 +44,7 @@ export default {
           this.newMessage.userId = user;
           messageService.createMessage(this.newMessage).then((response) => {
             if (response.status == 201) {
-              this.$router.back();
+              this.$router.go(-1);
             }
           });
         });
