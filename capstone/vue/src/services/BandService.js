@@ -31,4 +31,5 @@ export default {
         return axios.get(`/bands/myManager/${bandId}`);
     }
 
+
 }

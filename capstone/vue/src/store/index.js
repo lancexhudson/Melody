@@ -25,6 +25,7 @@ export default new Vuex.Store({
     bands: [],
     genres: [],
     myMessages: [],
+    myBands: [],
 
   },
   components: {
@@ -58,6 +59,9 @@ export default new Vuex.Store({
     },
     SET_MESSAGES(state, data) {
       state.myMessages = data;
+    },
+    SET_MY_BANDS(state, data) {
+      state.myBands = data;
     }
   }
 })

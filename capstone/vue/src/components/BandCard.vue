@@ -11,13 +11,23 @@
     </div> -->
 
     <button
-      :disabled="!isActive"
+      :disabled="amIFollowing(band.bandId)"
       type="submit"
       class="submit-button"
       v-on:click.prevent="toggleFavorite(band.bandId)"
     >
-      <img class="heart-button" src="..\assets\love.png" alt="heart" />
-      <!-- <img class="heart-button" src="..\assets\red-love.png" alt="red-heart" /> -->
+      <img
+        v-if="!amIFollowing(band.bandId)"
+        class="heart-button"
+        src="..\assets\love.png"
+        alt="heart"
+      />
+      <img
+        v-if="amIFollowing(band.bandId)"
+        class="heart-button"
+        src="..\assets\red-love.png"
+        alt="red-heart"
+      />
     </button>
   </div>
 </template>
@@ -29,7 +39,7 @@ export default {
   data() {
     return {
       isActive: true,
-
+      hasBeenClicked: false,
       favorite: {
         bandId: 0,
       },
@@ -47,7 +57,21 @@ export default {
       bandService.makeFavorite(this.favorite);
       this.favorite.bandId = 0;
       this.isActive = false;
+      this.$router.go();
     },
+    amIFollowing(bandId) {
+      return this.$store.state.myBands.some((b) => b.bandId === bandId);
+    },
+    setMyBands() {
+      bandService
+        .favoriteBandsByUser(this.$store.state.user.id)
+        .then((response) => {
+          this.$store.commit("SET_MY_BANDS", response.data);
+        });
+    },
+  },
+  created() {
+    this.setMyBands();
   },
 };
 </script>

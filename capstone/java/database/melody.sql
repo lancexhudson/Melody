@@ -1,6 +1,6 @@
 BEGIN TRANSACTION;
-DROP TABLE IF EXISTS band, genre, band_genre, band_user, user_favorite_bands, messages;
-DROP SEQUENCE IF EXISTS seq_band_id, seq_genre_id, seq_message_id;
+DROP TABLE IF EXISTS band, genre, band_genre, band_user, user_favorite_bands, messages, events;
+DROP SEQUENCE IF EXISTS seq_band_id, seq_genre_id, seq_message_id, seq_event_id;
 CREATE SEQUENCE seq_band_id
   INCREMENT BY 1
   START WITH 1001
@@ -58,6 +58,22 @@ CONSTRAINT PK_message_id PRIMARY KEY (message_id),
 CONSTRAINT FK_user_id FOREIGN KEY (user_id) REFERENCES users(user_id),
 CONSTRAINT FK_band_id FOREIGN KEY (band_id) REFERENCES band(band_id)	
 );
+
+CREATE SEQUENCE seq_event_id
+  INCREMENT BY 1
+  START WITH 4001
+  NO MAXVALUE;
+
+CREATE TABLE events (
+event_id int NOT NULL DEFAULT nextval('seq_event_id'),
+event_date DATE,  
+event_time TIME,
+venue varchar(100),
+band_id int NOT NULL,
+CONSTRAINT PK_event_id PRIMARY KEY (event_id),
+CONSTRAINT FK_band_id FOREIGN KEY (band_id) REFERENCES band(band_id)
+);
+
 
 INSERT INTO genre (genre_name) 
 VALUES ('Pop'), ('Rock'), ('HipHop'), ('Classical'), ('R&B'),('Electronic'), ('Country'), 
@@ -145,8 +161,7 @@ VALUES ('Foo Fighters',
 INSERT INTO band_genre (band_id, genre_id)
 VALUES (1010, 2001);
 
-<<<<<<< HEAD
-=======
+
 INSERT INTO band (band_name, description, image_link)
 VALUES ('Daft Punk', 'Daft Punk were a French electronic music duo formed in 1993 in Paris by Thomas Bangalter and Guy-Manuel de Homem-Christo. Widely regarded as one of the most influential acts in dance music history, they achieved popularity in the late 1990s as part of the French house movement. They garnered critical acclaim and commercial success in the years following, combining elements of house music with funk, disco, indie rock and pop.', 'https://upload.wikimedia.org/wikipedia/commons/e/ed/ThomasBangalter028.jpg');
 INSERT INTO band_genre (band_id, genre_id)
