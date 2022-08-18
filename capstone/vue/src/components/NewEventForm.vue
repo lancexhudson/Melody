@@ -72,7 +72,7 @@ export default {
   border: solid white 1px;
   padding: 20px;
   max-width: 320px;
-  margin-left: 54.3rem;
+
   border-radius: 0.5rem;
   margin-top: 1rem;
   background: rgba(0, 0, 0, 0.8);

@@ -29,10 +29,22 @@
           />
         </router-link>
       </div>
+
+      <!-- <div class="followListContainer">
+        <router-link class="addBand" :to="{ name: 'addBand' }"
+          ><img
+            title="Add a Band"
+            src="..\assets\love.png"
+            alt="addUser"
+            class="addUser"
+          />
+        </router-link>
+      </div> -->
     </div>
     <band-list></band-list>
-    <footer>Connor, Patrick, Austin, Michael, Lance</footer>
+
     <br />
+    <footer>Connor, Patrick, Austin, Michael, Lance</footer>
   </div>
 </template>
 
@@ -49,12 +61,6 @@ export default {
 </script>
 
 <style>
-/* .logoContainer {
-  display: flex;
-  justify-content: flex-end;
-  align-self: flex-start;
-  margin-right: auto;
-} */
 .homelogo {
   align-self: auto;
 
@@ -93,6 +99,12 @@ body.home {
 .addUser {
   max-width: auto;
   width: 48px;
+  margin: 2em;
+}
+
+.followListContainer {
+  max-width: auto;
+  width: 50px;
   margin: 2em;
 }
 .homeNav {
