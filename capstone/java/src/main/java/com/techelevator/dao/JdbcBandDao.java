@@ -235,6 +235,8 @@ public class JdbcBandDao implements BandDao {
     public void deleteFavorite(int userId, int band_id) {
         String sql = "DELETE FROM user_favorite_bands WHERE user_id = ? AND band_id = ?";
         jdbcTemplate.update(sql,userId, band_id);
+        String sql2 = "DELETE FROM messages WHERE user_id = ? AND band_id = ?";
+        jdbcTemplate.update(sql2, userId, band_id);
     }
 
 
