@@ -37,7 +37,9 @@
           <td>{{ formatTime(event.eventTime) }}</td>
           <td>
             <a
+              class="venue-link"
               href="https://www.livenation.com/venue/KovZpZAEk6IA/bogart-s-events"
+              target="_blank"
               >{{ event.venue }}</a
             >
           </td>
@@ -222,5 +224,10 @@ body.bandDetails {
 .input-for-upcoming-events-table tbody tr.active-row {
   font-weight: bold;
   color: #009879;
+}
+
+.venue-link {
+  text-decoration: none;
+  color: white;
 }
 </style>
