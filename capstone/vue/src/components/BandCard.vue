@@ -9,7 +9,7 @@
         Follow Band
       </button>
     </div> -->
-    <!-- <br /> -->
+
     <button
       :disabled="!isActive"
       type="submit"
@@ -17,8 +17,8 @@
       v-on:click.prevent="toggleFavorite(band.bandId)"
     >
       <img class="heart-button" src="..\assets\love.png" alt="heart" />
+      <!-- <img class="heart-button" src="..\assets\red-love.png" alt="red-heart" /> -->
     </button>
-    <!-- <br /> -->
   </div>
 </template>
 
@@ -29,6 +29,7 @@ export default {
   data() {
     return {
       isActive: true,
+
       favorite: {
         bandId: 0,
       },
@@ -89,6 +90,10 @@ a:link {
   background-color: transparent;
   border-color: white;
   border-radius: 0.2rem;
+}
+
+.submit-button:hover {
+  background-color: rgb(37, 35, 33);
 }
 
 .heart-button {
