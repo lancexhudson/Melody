@@ -139,7 +139,7 @@ button {
   display: block;
   flex-direction: column;
   align-content: center;
-  margin-left: 54.3rem;
+  margin-left: 50rem;
   margin-top: 1rem;
   min-width: auto;
   width: 360px;

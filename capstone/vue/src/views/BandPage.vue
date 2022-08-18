@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="main-div">
     <div class="melodyLogo">
       <router-link v-bind:to="{ name: 'home' }">
         <img
@@ -13,7 +13,7 @@
       <div>
         <new-message-form></new-message-form>
         <new-event-form></new-event-form>
-        <update-band-form></update-band-form>
+        <update-band-form class="update-your-band"></update-band-form>
       </div>
       <band-details v-bind:band="band"></band-details>
     </div>
@@ -69,5 +69,9 @@ body.bandDetailsView {
   background-attachment: fixed;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   height: 100vh;
+}
+.main-div {
+  display: flex;
+  margin-right: -70px;
 }
 </style>
