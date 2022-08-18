@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="new-event-wrapper">
     <form
       v-if="isManager"
       class="addEvent"
@@ -67,6 +67,7 @@ export default {
 <style>
 .addEvent {
   display: flex;
+
   justify-content: center;
   flex-direction: column;
   border: solid white 1px;
@@ -84,5 +85,9 @@ export default {
   font-size: 15pt;
   text-decoration: underline;
   color: white;
+}
+.new-event-wrapper {
+  display: flex;
+  margin: 0rem;
 }
 </style>
