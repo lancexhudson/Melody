@@ -23,7 +23,8 @@
           <th>Date</th>
           <th>Time</th>
           <th>Venue</th>
-          <th>Lineup</th>
+          <th>Edit</th>
+          <th>Delete</th>
         </tr>
       </thead>
       <tbody>
@@ -40,7 +41,23 @@
               >{{ event.venue }}</a
             >
           </td>
-          <td>TBD</td>
+          <td>
+            <router-link
+              :to="{
+                name: 'updateEvent',
+                params: {
+                  id: event.eventId,
+                  theBandId: $route.params.bandId,
+                },
+              }"
+              ><button>edit</button></router-link
+            >
+          </td>
+          <td>
+            <button @click="deleteEvent(event.eventId)" class="deleteButton">
+              delete
+            </button>
+          </td>
         </tr>
       </tbody>
     </table>
@@ -75,6 +92,15 @@ export default {
       //minutes = minutes < 10 ? "0" + minutes : minutes;
       var strTime = hours + ":" + minutes + " " + ampm;
       return strTime;
+    },
+    deleteEvent(eventId) {
+      eventService.deleteEvent(eventId).then((response) => {
+        if (confirm("Do YOU wish to delete this event?")) {
+          if (response.status == 200) {
+            this.$router.go();
+          }
+        }
+      });
     },
   },
   created() {
@@ -187,10 +213,6 @@ body.bandDetails {
 
 .upcoming-events-table tbody tr {
   border-bottom: thin transparent #dddddd;
-}
-
-.upcoming-events-table tbody tr:nth-of-type(even) {
-  background-color: #f3f3f3;
 }
 
 /* .upcoming-events-table tbody tr:last-of-type {
