@@ -1,6 +1,6 @@
 BEGIN TRANSACTION;
-DROP TABLE IF EXISTS band, genre, band_genre, band_user, user_favorite_bands, messages, events;
-DROP SEQUENCE IF EXISTS seq_band_id, seq_genre_id, seq_message_id, seq_event_id;
+DROP TABLE IF EXISTS band, genre, band_genre, band_user, user_favorite_bands, messages;
+DROP SEQUENCE IF EXISTS seq_band_id, seq_genre_id, seq_message_id;
 CREATE SEQUENCE seq_band_id
   INCREMENT BY 1
   START WITH 1001
@@ -59,21 +59,6 @@ CONSTRAINT FK_user_id FOREIGN KEY (user_id) REFERENCES users(user_id),
 CONSTRAINT FK_band_id FOREIGN KEY (band_id) REFERENCES band(band_id)	
 );
 
-CREATE SEQUENCE seq_event_id
-  INCREMENT BY 1
-  START WITH 4001
-  NO MAXVALUE;
-
-CREATE TABLE events (
-event_id int NOT NULL DEFAULT nextval('seq_event_id'),
-event_date DATE,  
-event_time TIME,
-venue varchar(100),
-band_id int NOT NULL,
-CONSTRAINT PK_event_id PRIMARY KEY (event_id),
-CONSTRAINT FK_band_id FOREIGN KEY (band_id) REFERENCES band(band_id)
-);
-
 INSERT INTO genre (genre_name) 
 VALUES ('Pop'), ('Rock'), ('HipHop'), ('Classical'), ('R&B'),('Electronic'), ('Country'), 
 		('Blues'), ('Jazz'), ('Metal'), ('Reggae'), ('Folk'), ('Latin'), ('A Capella'), ('Funk'), 
@@ -121,7 +106,7 @@ VALUES (1005, 2002);
 INSERT INTO band (band_name, description, image_link)
 VALUES ('Weezer',
 'Weezer is an American rock band formed in Los Angeles, California, in 1992. Since 2001, the band has consisted of Rivers Cuomo (lead vocals, lead guitar, keyboards), Patrick Wilson (drums), Scott Shriner (bass guitar, keyboards, backing vocals), and Brian Bell (rhythm guitar, keyboards, backing vocals).',
-'https://www.hollywoodreporter.com/wp-content/uploads/2018/12/weezer.jpg');
+'https://m.media-amazon.com/images/I/71nYpz++VCL._SL1400_.jpg');
 INSERT INTO band_genre (band_id, genre_id)
 VALUES (1006, 2001);
 INSERT INTO band_genre (band_id, genre_id)
@@ -159,17 +144,6 @@ VALUES ('Foo Fighters',
 'https://iscale.iheart.com/catalog/artist/72280');
 INSERT INTO band_genre (band_id, genre_id)
 VALUES (1010, 2001);
-
-INSERT INTO band (band_name, description, image_link)
-VALUES ('Daft Punk', 'Daft Punk were a French electronic music duo formed in 1993 in Paris by Thomas Bangalter and Guy-Manuel de Homem-Christo. Widely regarded as one of the most influential acts in dance music history, they achieved popularity in the late 1990s as part of the French house movement. They garnered critical acclaim and commercial success in the years following, combining elements of house music with funk, disco, indie rock and pop.', 'https://upload.wikimedia.org/wikipedia/commons/e/ed/ThomasBangalter028.jpg');
-INSERT INTO band_genre (band_id, genre_id)
-VALUES (1011, 2006);
-
-
-VALUES ('Darius Rucker', 'Darius Carlos Rucker (born May 13, 1966) is an American singer and songwriter. He first gained fame as the lead vocalist and rhythm guitarist of rock band Hootie & the Blowfish, which he founded in 1986 at the University of South Carolina along with Mark Bryan, Jim "Soni" Sonefeld, and Dean Felber. The band released five studio albums with Rucker as a member and charted six top 40 hits on the Billboard Hot 100. Rucker co-wrote most of the songs with the other members of the band.', 'https://res.cloudinary.com/usga/image/upload/c_fill,g_face,q_70,w_800/v1/usga/images/clubhouse/2016/2016-MC-images/DariusRucker.jpg');
-INSERT INTO band_genre (band_id, genre_id)
-VALUES (1012, 2007);
-
 
 
 

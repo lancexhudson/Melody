@@ -16,7 +16,7 @@
       class="submit-button"
       v-on:click.prevent="toggleFavorite(band.bandId)"
     >
-      Favorite?
+      <img class="heart-button" src="..\assets\love.png" alt="heart" />
     </button>
     <!-- <br /> -->
   </div>
@@ -83,7 +83,17 @@ a:link {
 }
 .submit-button {
   width: 80px;
-  font-weight: bold;
+  font-weight: light;
   margin-bottom: 19px;
+  color: grey;
+  background-color: transparent;
+  border-color: white;
+  border-radius: 0.2rem;
+}
+
+.heart-button {
+  padding-top: 2px;
+  max-width: 20px;
+  /* background-color:; */
 }
 </style>
