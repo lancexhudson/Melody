@@ -23,8 +23,8 @@
           <th>Date</th>
           <th>Time</th>
           <th>Venue</th>
-          <th>Edit</th>
-          <th>Delete</th>
+          <th v-if="isManager">Edit</th>
+          <th v-if="isManager">Delete</th>
         </tr>
       </thead>
       <tbody>
@@ -43,7 +43,7 @@
               >{{ event.venue }}</a
             >
           </td>
-          <td>
+          <td v-if="isManager">
             <router-link
               :to="{
                 name: 'updateEvent',
@@ -55,7 +55,7 @@
               ><button>edit</button></router-link
             >
           </td>
-          <td>
+          <td v-if="isManager">
             <button @click="deleteEvent(event.eventId)" class="deleteButton">
               delete
             </button>
@@ -67,14 +67,16 @@
 </template>
 
 <script>
-// import bandService from "@/services/BandService.js";
+import bandService from "@/services/BandService.js";
 import eventService from "@/services/EventService.js";
+
 export default {
   name: "band-details",
   data() {
     return {
       myEvents: [],
       myBandId: this.$route.params.bandId,
+      myManager: 0,
     };
   },
   props: ["band"],
@@ -104,9 +106,20 @@ export default {
         }
       });
     },
+    setMyManager() {
+      bandService.getMyManager(this.myBandId).then((response) => {
+        this.myManager = response.data;
+      });
+    },
+  },
+  computed: {
+    isManager() {
+      return this.myManager == this.$store.state.user.id ? true : false;
+    },
   },
   created() {
     this.setEvents();
+    this.setMyManager();
   },
 };
 </script>

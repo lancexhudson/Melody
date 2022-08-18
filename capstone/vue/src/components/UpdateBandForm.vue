@@ -32,7 +32,7 @@
           class="genre-selector-update"
           name="genre-selector"
           id="genre-select"
-          v-model="newBand.genre"
+          v-model="newBand.genres"
           required
           multiple
         >
@@ -77,9 +77,10 @@ export default {
       newBand: {
         bandName: "",
         description: "",
-        genre: [],
+        genres: [],
         imageLink: "",
       },
+      bandInfo: {},
       theBandId: this.$route.params.bandId,
       myManager: 0,
     };
@@ -94,7 +95,7 @@ export default {
       this.newBand = {
         bandName: "",
         description: "",
-        genre: [],
+        genres: [],
         imageLink: "",
       };
     },
@@ -108,6 +109,11 @@ export default {
         this.$store.commit("SET_GENRES", response.data);
       });
     },
+    setMyBandInfo() {
+      bandService.getBandById(this.theBandId).then((response) => {
+        this.newBand = response.data;
+      });
+    },
   },
   computed: {
     isMyManager() {
@@ -117,6 +123,7 @@ export default {
   created() {
     this.listGenres();
     this.setMyManager();
+    this.setMyBandInfo();
   },
 };
 </script>
