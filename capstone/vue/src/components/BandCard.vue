@@ -11,7 +11,6 @@
     </div> -->
 
     <button
-      :disabled="amIFollowing(band.bandId)"
       type="submit"
       class="submit-button"
       v-on:click.prevent="toggleFavorite(band.bandId)"
@@ -53,11 +52,16 @@ export default {
   },
   methods: {
     toggleFavorite(Id) {
-      this.favorite.bandId = Id;
-      bandService.makeFavorite(this.favorite);
-      this.favorite.bandId = 0;
-      this.isActive = false;
-      this.$router.go();
+      if (this.$store.state.myBands.some((b) => b.bandId === Id)) {
+        bandService.UNfollow(this.$store.state.user.id, Id);
+        this.$router.go();
+      } else {
+        this.favorite.bandId = Id;
+        bandService.makeFavorite(this.favorite);
+        this.favorite.bandId = 0;
+        this.isActive = false;
+        this.$router.go();
+      }
     },
     amIFollowing(bandId) {
       return this.$store.state.myBands.some((b) => b.bandId === bandId);

@@ -33,4 +33,6 @@ public interface BandDao {
 
     int managerOfMyBand(int bandId);
 
+    void deleteFavorite(int userId, int band_id);
+
 }

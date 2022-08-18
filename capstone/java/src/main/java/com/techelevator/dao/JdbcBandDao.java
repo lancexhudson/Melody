@@ -231,6 +231,12 @@ public class JdbcBandDao implements BandDao {
         return managerId;
     }
 
+    @Override
+    public void deleteFavorite(int userId, int band_id) {
+        String sql = "DELETE FROM user_favorite_bands WHERE user_id = ? AND band_id = ?";
+        jdbcTemplate.update(sql,userId, band_id);
+    }
+
 
     private Band mapRowToBand(SqlRowSet rs) {
         Band band = new Band();

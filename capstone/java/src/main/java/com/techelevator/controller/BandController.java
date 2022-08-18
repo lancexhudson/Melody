@@ -74,4 +74,9 @@ public class BandController {
     public int myManager(@PathVariable("id") int bandId) {
         return bandDao.managerOfMyBand(bandId);
     }
+
+    @RequestMapping (path = "/band/{bandId}/delete/favorite/{id}", method = RequestMethod.DELETE)
+    public void deleteFavorite(@PathVariable("bandId") int bandId, @PathVariable("id") int userId) {
+        bandDao.deleteFavorite(userId, bandId);
+    }
 }

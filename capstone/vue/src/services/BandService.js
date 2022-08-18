@@ -29,6 +29,9 @@ export default {
     },
     getMyManager(bandId) {
         return axios.get(`/bands/myManager/${bandId}`);
+    },
+    UNfollow(userId, bandId) {
+        return axios.delete(`/band/${bandId}/delete/favorite/${userId}`);
     }
 
 
