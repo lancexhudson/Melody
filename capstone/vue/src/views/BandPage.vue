@@ -27,6 +27,9 @@ import newMessageForm from "@/components/NewMessageForm";
 import updateBandForm from "@/components/UpdateBandForm";
 import newEventForm from "@/components/NewEventForm";
 export default {
+  beforeCreate: function () {
+    document.body.className = "bandDetailsView";
+  },
   data() {
     return {
       band: {},
@@ -51,4 +54,20 @@ export default {
 </script>
 
 <style>
+body.bandDetailsView {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  justify-content: flex-center;
+
+  align-content: center;
+  background: black;
+  color: white;
+  background-image: url("~@/assets/crowd.png");
+  background-position: bottom;
+  background-size: cover;
+  background-attachment: fixed;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  height: 100vh;
+}
 </style>

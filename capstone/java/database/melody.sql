@@ -145,6 +145,17 @@ VALUES ('Foo Fighters',
 INSERT INTO band_genre (band_id, genre_id)
 VALUES (1010, 2001);
 
+<<<<<<< HEAD
+=======
+INSERT INTO band (band_name, description, image_link)
+VALUES ('Daft Punk', 'Daft Punk were a French electronic music duo formed in 1993 in Paris by Thomas Bangalter and Guy-Manuel de Homem-Christo. Widely regarded as one of the most influential acts in dance music history, they achieved popularity in the late 1990s as part of the French house movement. They garnered critical acclaim and commercial success in the years following, combining elements of house music with funk, disco, indie rock and pop.', 'https://upload.wikimedia.org/wikipedia/commons/e/ed/ThomasBangalter028.jpg');
+INSERT INTO band_genre (band_id, genre_id)
+VALUES (1011, 2006);
+
+
+
+
+>>>>>>> d078b8fe46040dd5ed2f98058b390faf0d18f416
 
 
 COMMIT;
