@@ -34,5 +34,15 @@ public class EventController {
         return eventDAO.listEventsByBandId(bandId);
     }
 
+    @RequestMapping(path= "/events/update", method = RequestMethod.PUT)
+    public void updateEvent(@RequestBody EventDTO eventDTO) {
+        eventDAO.updateEvent(eventDTO);
+    }
+
+    @RequestMapping(path = "/events/delete/{id}", method = RequestMethod.DELETE)
+    public void deleteEvent(@PathVariable("id") int eventId) {
+        eventDAO.deleteEvent(eventId);
+    }
+
 
 }

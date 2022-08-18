@@ -48,7 +48,6 @@ export default {
             venue: "",
             bandId: this.$route.params.bandId,
           };
-
           this.$router.go();
         }
       });

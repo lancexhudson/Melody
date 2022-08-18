@@ -8,6 +8,7 @@ import store from '../store/index'
 import NewBand from '../views/NewBand'
 import BandPage from '../views/BandPage'
 import MessageInbox from '../views/MessageInbox'
+import UpdateEvent from '../views/UpdateEventView'
 
 Vue.use(Router)
 
@@ -70,6 +71,11 @@ const router = new Router({
       path: '/inbox',
       name: 'inbox',
       component: MessageInbox,
+    },
+    {
+      path: '/updateEvent/:id/band/:theBandId',
+      name: 'updateEvent',
+      component: UpdateEvent,
     },
   ]
 })

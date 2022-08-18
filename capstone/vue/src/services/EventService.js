@@ -6,5 +6,11 @@ export default {
     },
     createAnEvent(newEvent) {
         return axios.post(`/events/register`, newEvent);
+    },
+    updateEvent(newEvent) {
+        return axios.put(`/events/update`, newEvent);
+    },
+    deleteEvent(eventId) {
+        return axios.delete(`/events/delete/${eventId}`);
     }
 }
