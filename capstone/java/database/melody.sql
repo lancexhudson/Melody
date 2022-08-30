@@ -47,7 +47,6 @@ CREATE SEQUENCE seq_message_id
   INCREMENT BY 1
   START WITH 3001
   NO MAXVALUE;
-  
 CREATE TABLE messages (
 user_id int NOT NULL,
 band_id int NOT NULL,

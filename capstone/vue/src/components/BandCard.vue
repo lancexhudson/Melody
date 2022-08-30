@@ -18,13 +18,13 @@
       <img
         v-if="!amIFollowing(band.bandId)"
         class="heart-button"
-        src="..\assets\love.png"
+        src=../assets/love.png"
         alt="heart"
       />
       <img
         v-if="amIFollowing(band.bandId)"
         class="heart-button"
-        src="..\assets\red-love.png"
+        src=../assets/red-love.png"
         alt="red-heart"
       />
     </button>
